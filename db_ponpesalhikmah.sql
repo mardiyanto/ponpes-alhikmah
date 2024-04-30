@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Apr 2024 pada 01.02
+-- Generation Time: 30 Apr 2024 pada 02.06
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_ponpesalhikmah`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `alumni`
+--
+
+CREATE TABLE `alumni` (
+  `id_alumni` int(50) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `pekerjaan` varchar(100) NOT NULL,
+  `keterangan` text NOT NULL,
+  `foto` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -48,6 +62,71 @@ INSERT INTO `berita` (`id_berita`, `judul`, `tanggal`, `jam`, `isi`, `dilihat`, 
 (2, 'Kepala Dinas PUPR Kabupaten Tanggamus Dorong Inovasi dan Sinergi dalam Pembangunan Infrastruktur', '18/04/2024', '2024-04-18 15:18:09', '<p><strong>Tanggamus, 18 April 2024</strong> - Kepala Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) Kabupaten Tanggamus, Bapak Riswanda Djunaidi, S.E., M.M., menegaskan komitmennya dalam mendorong inovasi dan sinergi dalam pembangunan infrastruktur di wilayah tersebut. Dalam sebuah wawancara, beliau berbagi visi dan rencana kerjanya untuk memajukan sektor PUPR demi kesejahteraan masyarakat.</p>\r\n\r\n<p>Bapak Riswanda menyatakan bahwa salah satu fokus utamanya adalah menggalakkan inovasi dalam pembangunan infrastruktur. Menurutnya, penggunaan teknologi terkini dan pendekatan inovatif dalam desain dan pelaksanaan proyek dapat meningkatkan efisiensi dan kualitas infrastruktur yang dibangun.</p>\r\n\r\n<p>&quot;Saat ini, kita harus terus berinovasi agar dapat menangani tantangan-tantangan baru dalam pembangunan infrastruktur. Saya akan mendorong tim saya untuk mengadopsi teknologi terbaru dan memanfaatkan pendekatan inovatif dalam setiap proyek yang kami jalankan,&quot; ujar Bapak Riswanda.</p>\r\n\r\n<p>Selain itu, Bapak Riswanda juga menekankan pentingnya sinergi antara berbagai pihak terkait dalam pembangunan infrastruktur. Menurutnya, kolaborasi yang erat antara pemerintah, sektor swasta, dan masyarakat sangatlah penting untuk mencapai pembangunan yang berkelanjutan dan inklusif.</p>\r\n\r\n<p>&quot;Dalam menghadapi kompleksitas pembangunan infrastruktur, sinergi antara pemerintah, sektor swasta, dan masyarakat sangatlah krusial. Saya akan berupaya membangun kemitraan yang kuat dan memastikan partisipasi aktif dari semua pihak terkait dalam setiap tahapan proyek,&quot; tambahnya.</p>\r\n\r\n<p>Bapak Riswanda juga menegaskan komitmennya untuk menjaga transparansi dan akuntabilitas dalam setiap kegiatan Dinas PUPR. Beliau berjanji untuk melaksanakan tugasnya dengan penuh integritas dan bertanggung jawab demi kepentingan masyarakat Kabupaten Tanggamus.</p>\r\n\r\n<p>Dengan semangat inovasi, sinergi, dan integritas, Bapak Riswanda Djunaidi, S.E., M.M., siap memimpin Dinas PUPR Kabupaten Tanggamus menuju pembangunan infrastruktur yang berkualitas, berkelanjutan, dan mensejahterakan masyarakat.</p>\r\n', 0, '18042024101809.jpg', 'informasi'),
 (3, 'Dinas PUPR Kabupaten Tanggamus Bersama Dinas Pertanian dan Warga Tinjau Sungai Way Pihabung untuk Solusi Irigasi Petani', '18/04/2024', '2024-04-18 15:21:27', '<p><strong>Tanggamus, 18 April 2024</strong> - Dalam upaya menindaklanjuti keluhan petani terkait sistem irigasi di Sungai Way Pihabung, Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) Kabupaten Tanggamus bersama Dinas Pertanian dan warga setempat melakukan tinjauan langsung ke lokasi. Upaya ini dilakukan untuk memahami masalah yang dihadapi oleh petani dan mencari solusi yang tepat guna meningkatkan kualitas irigasi yang mendukung pertanian di wilayah tersebut.</p>\r\n\r\n<p>Bertempat di sepanjang Sungai Way Pihabung, rombongan dari Dinas PUPR dan Dinas Pertanian didampingi oleh sejumlah petani setempat menyusuri daerah sekitar sungai. Mereka secara langsung mengamati kondisi saluran irigasi, debit air, serta infrastruktur pendukung lainnya.</p>\r\n\r\n<p>Bapak Riswanda Djunaidi, S.E., M.M., Kepala Dinas PUPR Kabupaten Tanggamus, menekankan pentingnya keterlibatan aktif dari berbagai pihak dalam menyelesaikan masalah infrastruktur seperti ini. &quot;Kami memandang penting untuk mendengarkan langsung keluhan dan masukan dari petani, karena merekalah yang paling merasakan dampak dari kondisi infrastruktur yang kurang memadai,&quot; ujarnya.</p>\r\n\r\n<p>Selama tinjauan, terungkap bahwa banyak petani mengalami kesulitan akibat penyumbatan dan kerusakan pada saluran irigasi. Hal ini mengakibatkan pengairan yang tidak merata dan seringkali tidak mencukupi kebutuhan tanaman, yang berdampak negatif pada hasil panen mereka.</p>\r\n\r\n<p>Dalam rangka menanggapi masalah ini, tim dari Dinas PUPR dan Dinas Pertanian melakukan pemantauan yang cermat terhadap kondisi sungai dan infrastruktur irigasi yang ada. Mereka juga melakukan diskusi dengan warga setempat untuk mengumpulkan masukan dan saran dalam rangka perbaikan.</p>\r\n\r\n<p>&quot;Kami akan segera menyusun rencana perbaikan yang komprehensif berdasarkan hasil tinjauan ini. Upaya kami tidak hanya akan fokus pada perbaikan infrastruktur fisik, tetapi juga pada pengelolaan yang lebih efisien dan pengawasan yang lebih ketat untuk memastikan sistem irigasi yang lebih baik di masa depan,&quot; ungkap Bapak Riswanda.</p>\r\n\r\n<p>Tinjauan ini merupakan salah satu contoh nyata dari komitmen Dinas PUPR Kabupaten Tanggamus dalam mendengarkan dan bertindak sesuai dengan kebutuhan masyarakat. Dengan melibatkan berbagai pihak terkait dan mendengarkan suara petani, diharapkan solusi yang dihasilkan akan memberikan manfaat yang nyata bagi pertanian lokal dan kesejahteraan masyarakat.</p>\r\n', 0, '18042024102127.jpg', 'informasi'),
 (5, 'Tentang Kami', '19/04/2024', '2024-04-19 14:18:10', '<p>Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) adalah sebuah lembaga pemerintah di Indonesia yang bertanggung jawab dalam pembangunan dan pengelolaan infrastruktur publik serta perumahan bagi masyarakat. Tugas utama dari Dinas PUPR adalah merencanakan, melaksanakan, dan mengawasi pembangunan serta pemeliharaan infrastruktur yang meliputi jalan, jembatan, irigasi, bendungan, gedung, fasilitas air minum, sanitasi, serta pembangunan perumahan untuk rakyat.</p>\r\n\r\n<p>Beberapa fungsi penting dari Dinas PUPR antara lain:</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p><strong>Perencanaan Infrastruktur</strong>: Merencanakan pembangunan infrastruktur dan perumahan sesuai dengan kebutuhan masyarakat dan arah pembangunan nasional.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pelaksanaan Proyek</strong>: Melaksanakan pembangunan infrastruktur dan perumahan baik secara langsung maupun melalui kontraktor yang diamanahkan oleh pemerintah.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pengawasan dan Pengendalian</strong>: Mengawasi dan mengendalikan pelaksanaan proyek pembangunan agar sesuai dengan standar teknis, waktu, dan anggaran yang telah ditetapkan.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pemeliharaan Infrastruktur</strong>: Bertanggung jawab atas pemeliharaan dan perawatan infrastruktur yang telah dibangun agar tetap berfungsi dengan baik dan aman digunakan oleh masyarakat.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pengelolaan Perumahan</strong>: Mengelola program perumahan bagi masyarakat, termasuk dalam hal pembangunan rumah subsidi, perumahan bagi masyarakat berpenghasilan rendah (MBR), dan peningkatan akses terhadap perumahan layak huni.</p>\r\n	</li>\r\n</ol>\r\n', 0, '19042024091810.jpg', 'halaman');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `daftar`
+--
+
+CREATE TABLE `daftar` (
+  `id_daftar` int(11) NOT NULL,
+  `no_daftar` varchar(100) DEFAULT NULL,
+  `program` varchar(100) NOT NULL,
+  `jenis` varchar(100) DEFAULT NULL,
+  `nik` varchar(30) DEFAULT NULL,
+  `nisn` varchar(30) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `warga_siswa` varchar(20) DEFAULT NULL,
+  `foto` varchar(128) NOT NULL,
+  `jenis_kelamin` varchar(100) DEFAULT NULL,
+  `tempat_lahir` varchar(128) DEFAULT NULL,
+  `tgl_lahir` date DEFAULT NULL,
+  `asal_sekolah` varchar(128) DEFAULT NULL,
+  `id_jurusan` varchar(30) DEFAULT NULL,
+  `agama` varchar(50) DEFAULT NULL,
+  `alamat` text,
+  `rt` varchar(5) DEFAULT NULL,
+  `rw` varchar(5) DEFAULT NULL,
+  `desa` varchar(128) DEFAULT NULL,
+  `kecamatan` varchar(128) DEFAULT NULL,
+  `kota` varchar(128) DEFAULT NULL,
+  `provinsi` varchar(128) DEFAULT NULL,
+  `kode_pos` varchar(6) DEFAULT NULL,
+  `transportasi` varchar(128) DEFAULT NULL,
+  `no_hp` varchar(16) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `waktu` varchar(128) DEFAULT NULL,
+  `nama_ayah` varchar(128) DEFAULT NULL,
+  `pendidikan_ayah` varchar(128) DEFAULT NULL,
+  `pekerjaan_ayah` varchar(128) DEFAULT NULL,
+  `penghasilan_ayah` varchar(128) DEFAULT NULL,
+  `no_hp_ayah` varchar(16) DEFAULT NULL,
+  `nama_ibu` varchar(128) DEFAULT NULL,
+  `pendidikan_ibu` varchar(128) DEFAULT NULL,
+  `pekerjaan_ibu` varchar(128) DEFAULT NULL,
+  `penghasilan_ibu` varchar(128) DEFAULT NULL,
+  `no_hp_ibu` varchar(16) DEFAULT NULL,
+  `no_ijazah` varchar(128) DEFAULT NULL,
+  `no_shun` varchar(128) DEFAULT NULL,
+  `no_ujian` varchar(128) DEFAULT NULL,
+  `no_kip` varchar(30) DEFAULT NULL,
+  `kip` varchar(256) DEFAULT NULL,
+  `kk` text,
+  `kepala_keluarga` varchar(100) DEFAULT NULL,
+  `ijazah` varchar(256) DEFAULT NULL,
+  `akta` varchar(256) DEFAULT NULL,
+  `status_upload` varchar(2) DEFAULT '0',
+  `aktif` int(1) DEFAULT '0',
+  `status` int(1) DEFAULT '0',
+  `tgl_daftar` date DEFAULT NULL,
+  `tgl_konfirmasi` date DEFAULT NULL,
+  `konfirmasi` int(1) DEFAULT '0',
+  `password` text,
+  `show_pass` varchar(100) DEFAULT NULL,
+  `id_sesi` varchar(200) DEFAULT NULL,
+  `token` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -127,10 +206,22 @@ INSERT INTO `user` (`user_id`, `user_nama`, `user_username`, `user_password`, `u
 --
 
 --
+-- Indexes for table `alumni`
+--
+ALTER TABLE `alumni`
+  ADD PRIMARY KEY (`id_alumni`);
+
+--
 -- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
+
+--
+-- Indexes for table `daftar`
+--
+ALTER TABLE `daftar`
+  ADD PRIMARY KEY (`id_daftar`);
 
 --
 -- Indexes for table `galeri`
@@ -161,10 +252,20 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `alumni`
+--
+ALTER TABLE `alumni`
+  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `daftar`
+--
+ALTER TABLE `daftar`
+  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `galeri`
 --

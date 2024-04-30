@@ -288,7 +288,7 @@ while ($t=mysqli_fetch_array($tebaru)){ ?>
                             <div class="col-sm-6">
                                 <div class="form-floating">
                                     <input type="email" class="form-control bg-light border-0" id="gmail" placeholder="Gurdian Email">
-                                    <label for="gmail">Nama Orangtua/wali</label>
+                                    <label for="gmail">Email</label>
                                 </div>
                             </div>
                             
@@ -302,7 +302,7 @@ while ($t=mysqli_fetch_array($tebaru)){ ?>
                                 <div class="form-floating">
                                     <!-- <input type="text" class="form-control bg-light border-0" id="cage" placeholder="Child Age"> -->
                                     <select class='form-control select2' style='width: 100%;' name='program' id='program' required>
-                                            <option value='normal'>----Pilih Program Kuliah----</option>
+                                            <option value='normal'>----Pilih Program Sekolah----</option>
                                             <option value='normal'>Normal</option>
                                             <option value='rpl'>RPL 2 TAHUN</option>
                                             </select>
