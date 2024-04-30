@@ -4,11 +4,11 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <span class="fa fa-phone-alt me-2"></span>
-                    <span>+012 345 6789</span>
+                    <span>+62 8137-9567-636</span>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <span class="far fa-envelope me-2"></span>
-                    <span>info@example.com</span>
+                    <span>ponpes_alhidayahkeputran@gmail.com</span>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
@@ -50,7 +50,7 @@ while ($r=mysqli_fetch_array($sql)){
                 
                 <a href="utama.php?aksi=hubungi" class="nav-item nav-link">Hubungi Kami</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">Get A Quote<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">Daftar<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->

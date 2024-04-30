@@ -28,6 +28,20 @@ elseif($_GET['aksi']=='hapusgaleri'){
   unlink($pathFile);
 echo "<script>window.location=('index.php?aksi=galeri')</script>";
 }
+elseif($_GET['aksi']=='hapusalumni'){
+  mysqli_query($koneksi,"DELETE FROM alumni WHERE id_alumni='$_GET[id_alumni]'");
+  $b=$_GET['gbr'];
+  $pathFile="../foto/alumni/$b";	   
+  unlink($pathFile);
+echo "<script>window.location=('index.php?aksi=alumni')</script>";
+}
+elseif($_GET['aksi']=='hapuspegawai'){
+  mysqli_query($koneksi,"DELETE FROM pegawai WHERE id_pegawai='$_GET[id_pegawai]'");
+  $b=$_GET['gbr'];
+  $pathFile="../foto/pegawai/$b";	   
+  unlink($pathFile);
+echo "<script>window.location=('index.php?aksi=pegawai')</script>";
+}
 elseif($_GET['aksi']=='hapuskritik'){
   mysqli_query($koneksi,"DELETE FROM kritik  WHERE id_kritik='$_GET[id_kritik]'");
   echo "<script>window.location=('index.php?aksi=kritik')</script>";

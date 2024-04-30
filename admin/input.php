@@ -74,7 +74,49 @@ elseif($_GET['aksi']=='inputgaleri'){
 	   echo "<script>window.location=('index.php?aksi=galeri')</script>";
 		  }
 		 } 
-	}
+}
+elseif($_GET['aksi']=='inputalumni'){
+	if (empty($_POST[nama]) || empty($_POST[pekerjaan])){
+		echo "<script>window.alert('Data yang Anda isikan belum lengkap');
+			   window.location=('javascript:history.go(-1)')</script>";
+			}else{
+			
+	   $lokasi_file=$_FILES[gambar][tmp_name];
+	   if(empty($lokasi_file)){
+	   echo "<script>window.alert('File gambar masih kosong');
+			   window.location=('javascript:history.go(-1)')</script>";
+	   }else{
+	   $tanggal=date("dmYhis");
+	   $file=$_FILES['gambar']['tmp_name'];
+	   $file_name=$_FILES['gambar']['name'];
+	   copy($file,"../foto/alumni/".$tanggal.".jpg");
+	   mysqli_query($koneksi,"insert into alumni (nama,pekerjaan,keterangan,gambar) values ('$_POST[nama]','$_POST[pekerjaan]','$_POST[keterangan]','$tanggal.jpg')");
+		  
+	   echo "<script>window.location=('index.php?aksi=alumni')</script>";
+		  }
+		 } 
+}
+elseif($_GET['aksi']=='inputpegawai'){
+	if (empty($_POST[nama]) || empty($_POST[keterangan])){
+		echo "<script>window.alert('Data yang Anda isikan belum lengkap');
+			   window.location=('javascript:history.go(-1)')</script>";
+			}else{
+			
+	   $lokasi_file=$_FILES[gambar][tmp_name];
+	   if(empty($lokasi_file)){
+	   echo "<script>window.alert('File gambar masih kosong');
+			   window.location=('javascript:history.go(-1)')</script>";
+	   }else{
+	   $tanggal=date("dmYhis");
+	   $file=$_FILES['gambar']['tmp_name'];
+	   $file_name=$_FILES['gambar']['name'];
+	   copy($file,"../foto/pegawai/".$tanggal.".jpg");
+	   mysqli_query($koneksi,"insert into pegawai (nama,keterangan,gambar) values ('$_POST[nama]','$_POST[keterangan]','$tanggal.jpg')");
+		  
+	   echo "<script>window.location=('index.php?aksi=pegawai')</script>";
+		  }
+		 } 
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 elseif($_GET['aksi']=='inputmenu'){
 	mysqli_query($koneksi,"insert into menu (nama_menu,link,link_b,status,icon_menu,aktif) values ('$_POST[nama_menu]','$_POST[link]','$_POST[link_b]','$_POST[status]','$_POST[icon_menu]','$_POST[aktif]')");  
@@ -121,15 +163,7 @@ if($filename == ""){
 	}
 }
 }
-if($_GET['aksi']=='inputpegawai'){
-	$kalimat = $_POST['nip'];
-    $sub_kalimat = substr($kalimat,0,8);
-	$username = $sub_kalimat;
-    $password = md5($sub_kalimat);	
-mysqli_query($koneksi,"insert into pegawai (nama_pegawai,nip,tgl_lahir,status,tingkat,jenis_kelamin,jurusan,gol,username,password,status_pg,status_kk) 
-values ('$_POST[nama_pegawai]','$_POST[nip]','$_POST[tgl_lahir]','$_POST[status]','$_POST[tingkat]','$_POST[jenis_kelamin]','$_POST[jurusan]','$_POST[gol]','$username','$password','baru','baru')");  
-echo "<script>window.location=('index.php?aksi=pegawai')</script>";
-}
+
 elseif($_GET['aksi']=='inputkeluarga'){
 	mysqli_query($koneksi,"insert into keluarga (id_pegawai,nama_keluarga,jk_keluarga,tempatlahir_keluarga,tgllahir_keluarga,status_keluarga,pekejaan_keluarga,pendidikan_keluarga,penghasilan_keluarga,ket_keluarga,tunjang_status,tgl_mati,status_nikah,status_beasiswa,anak_angkat_status,status_sekolah,status_aktif) 
 	values ('$_POST[id_pegawai]','$_POST[nama_keluarga]','$_POST[jk_keluarga]','$_POST[tempatlahir_keluarga]','$_POST[tgllahir_keluarga]','$_POST[status_keluarga]','$_POST[pekejaan_keluarga]','$_POST[pendidikan_keluarga]','$_POST[penghasilan_keluarga]','$_POST[ket_keluarga]','$_POST[tunjang_status]','$_POST[tgl_mati]','$_POST[status_nikah]','$_POST[status_beasiswa]','$_POST[anak_angkat_status]','$_POST[status_sekolah]','$_POST[status_aktif]')");  

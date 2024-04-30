@@ -97,6 +97,48 @@ elseif($_GET['aksi']=='proseseditgaleri'){
 		  }
 		 } 
 }
+elseif($_GET['aksi']=='proseseditalumni'){
+	if (empty($_POST[nama]) || empty($_POST[pekerjaan])){
+		echo "<script>window.alert('Data yang Anda isikan belum lengkap');
+			   window.location=('javascript:history.go(-1)')</script>";
+			}else{
+			
+	   $lokasi_file=$_FILES[gambar][tmp_name];
+	   if(empty($lokasi_file)){
+	   mysqli_query($koneksi,"UPDATE alumni SET nama='$_POST[nama]', pekerjaan='$_POST[pekerjaan]',  keterangan='$_POST[keterangan]' WHERE id_alumni='$_GET[id_alumni]'");
+	   echo "<script>window.location=('index.php?aksi=alumni')</script>";
+	   }else{
+	   $a=$_GET['gb'];
+	   $file=$_FILES['gambar']['tmp_name'];
+	   $file_name=$_FILES['gambar']['name'];
+	   copy($file,"../foto/alumni/".$a);
+	   mysqli_query($koneksi,"UPDATE alumni SET nama='$_POST[nama]', pekerjaan='$_POST[pekerjaan]',  keterangan='$_POST[keterangan]' WHERE id_alumni='$_GET[id_alumni]'");
+		  
+	   echo "<script>window.location=('index.php?aksi=alumni')</script>";
+		  }
+		 } 
+}
+elseif($_GET['aksi']=='proseseditpegawai'){
+	if (empty($_POST[nama]) || empty($_POST[keterangan])){
+		echo "<script>window.alert('Data yang Anda isikan belum lengkap');
+			   window.location=('javascript:history.go(-1)')</script>";
+			}else{
+			
+	   $lokasi_file=$_FILES[gambar][tmp_name];
+	   if(empty($lokasi_file)){
+	   mysqli_query($koneksi,"UPDATE pegawai SET nama='$_POST[nama]',  keterangan='$_POST[keterangan]' WHERE id_pegawai='$_GET[id_pegawai]'");
+	   echo "<script>window.location=('index.php?aksi=pegawai')</script>";
+	   }else{
+	   $a=$_GET['gb'];
+	   $file=$_FILES['gambar']['tmp_name'];
+	   $file_name=$_FILES['gambar']['name'];
+	   copy($file,"../foto/pegawai/".$a);
+	   mysqli_query($koneksi,"UPDATE pegawai SET nama='$_POST[nama]',  keterangan='$_POST[keterangan]' WHERE id_pegawai='$_GET[id_pegawai]'");
+		  
+	   echo "<script>window.location=('index.php?aksi=pegawai')</script>";
+		  }
+		 } 
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 elseif($_GET['aksi']=='proseseditmenu'){
 	mysqli_query($koneksi,"UPDATE menu SET nama_menu='$_POST[nama_menu]',link='$_POST[link]',link_b='$_POST[link_b]',status='$_POST[status]',icon_menu='$_POST[icon_menu]',aktif='$_POST[aktif]' WHERE id_menu='$_GET[id_menu]'");

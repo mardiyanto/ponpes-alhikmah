@@ -171,8 +171,8 @@ echo"<!-- Page Header Start -->
                         <i class='fa fa-phone-alt fa-2x text-primary'></i>
                     </div>
                     <h4 class='mb-3'>Nomor Handphone</h4>
-                    <p class='mb-2'>+62 81373052805</p>
-                    <a class='btn btn-primary px-4' href='tel:+62 81373052805'>Call Now <i class='fa fa-arrow-right ms-2'></i></a>
+                    <p class='mb-2'>+62 8137-9567-636</p>
+                    <a class='btn btn-primary px-4' href='tel:+62 8137-9567-636'>Call Now <i class='fa fa-arrow-right ms-2'></i></a>
                 </div>
             </div>
             <div class='col-lg-4 col-md-6 wow fadeInUp' data-wow-delay='0.3s'>
@@ -181,8 +181,8 @@ echo"<!-- Page Header Start -->
                         <i class='fa fa-envelope-open fa-2x text-primary'></i>
                     </div>
                     <h4 class='mb-3'>Email Address</h4>
-                    <p class='mb-4'>pupr.tgms@gmail.com</p>
-                    <a class='btn btn-primary px-4' href='pupr.tgms@gmail.com'>Email Now <i class='fa fa-arrow-right ms-2'></i></a>
+                    <p class='mb-4'>ponpes_alhidayahkeputran@gmail.com</p>
+                    <a class='btn btn-primary px-4' href='ponpes_alhidayahkeputran@gmail.com'>Email Now <i class='fa fa-arrow-right ms-2'></i></a>
                 </div>
             </div>
             <div class='col-lg-4 col-md-6 wow fadeInUp' data-wow-delay='0.5s'>
@@ -191,15 +191,15 @@ echo"<!-- Page Header Start -->
                         <i class='fa fa-map-marker-alt fa-2x text-primary'></i>
                     </div>
                     <h4 class='mb-3'>Office Address</h4>
-                    <p class='mb-2'>Jalan A. Yani No. 09 Komplek Pemda Tanggamus</p>
-                    <a class='btn btn-primary px-4' href='https://maps.app.goo.gl/YEmLsbx1NdUiEKZV9' target='blank'>Direction <i class='fa fa-arrow-right ms-2'></i></a>
+                    <p class='mb-2'>$k_k[alamat]</p>
+                    <a class='btn btn-primary px-4' href='https://maps.app.goo.gl/wo1AFQuFGtmvFKri6' target='blank'>Direction <i class='fa fa-arrow-right ms-2'></i></a>
                 </div>
             </div>
         </div>
         <div class='row mb-5'>
             <div class='col-12 wow fadeInUp' data-wow-delay='0.1s'>
                 <iframe class='w-100'
-                src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15886.191804950713!2d104.6817885!3d-5.4853027!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e47216a6f2c6ed3%3A0xf8382afedab6b33a!2sDinas%20Pekerjaan%20Umum%20dan%20Perumahan%20Rakyat!5e0!3m2!1sid!2sid!4v1713693530019!5m2!1sid!2sid'
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.4524823018796!2d104.90447442498368!3d-5.347694544630967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4731b962dd44bb%3A0xe40d7d4efab593b9!2sPondok%20Pesantren%20Al%20Hidayah%20Pringsewu!5e0!3m2!1sid!2sid!4v1714456194268!5m2!1sid!2sid'
                 frameborder='0' style='min-height: 450px; border:0;' allowfullscreen='' aria-hidden='false'
                 tabindex='0'></iframe>
             </div>
@@ -208,7 +208,7 @@ echo"<!-- Page Header Start -->
             <div class='col-lg-6 wow fadeInUp' data-wow-delay='0.1s'>
                 <p class='fw-medium text-uppercase text-primary mb-2'>Kontak Kami</p>
                 <h1 class='display-5 mb-4'>Jika ada butuh informasi silahkan tinggalkan pesan di samping</h1>
-                <p class='mb-4'>Informasi Konta Kami merupakan informasi untuk kritik dan saran atau untuk meninggalkan pesan terhadap admin website kami, jika di perlukan silhakan tinggalkan pesan di samping ini, kritik dan saran membangun kami supaya kami terus berbenah untuk pembangunan masyarakat</p>
+                <p class='mb-4'>Informasi Konta Kami merupakan informasi untuk kritik dan saran atau untuk meninggalkan pesan terhadap admin website kami</p>
                 <div class='row g-4'>
                     <div class='col-6'>
                         <div class='d-flex'>
@@ -217,7 +217,7 @@ echo"<!-- Page Header Start -->
                             </div>
                             <div class='ms-3'>
                                 <h6>Call Us</h6>
-                                <span>+62 81373052805</span>
+                                <span>+62 8137-9567-636</span>
                             </div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@ echo"<!-- Page Header Start -->
                             </div>
                             <div class='ms-3'>
                                 <h6>Mail Us</h6>
-                                <span>pupr.tgms@gmail.com</span>
+                                <span>ponpes_alhidayahkeputran@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -285,39 +285,37 @@ echo"<!-- Page Header Start -->
     </div>
 </div>
 <!-- Page Header End -->
-<div class='container-fluid py-5'>
-<div class='container'>
-    <div class='section-header text-center pb-5 wow fadeIn' data-wow-delay='0.1s'>
-        <h6 class='bg-white px-2 fw-semi-bold text-uppercase text-primary'>Projects</h6>
-        <h1 class='display-5 mb-0'>Galeri Kami</h1>
-    </div>
-    <div class='row g-3 portfolio-container'>
-    ";
-    $tebaru=mysqli_query($koneksi," SELECT * FROM galeri ORDER BY id_galeri DESC LIMIT 4");              
-while ($t=mysqli_fetch_array($tebaru)){
-        
-        echo"
-    <div class='col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeIn' data-wow-delay='0.1s'>
-            <div class='portfolio-warp'>
-                <div class='portfolio-img'>
-                    <img src='foto/galleri/$t[gambar]'  style='width: 420px;' alt='Image'>
-                </div>
-                <div class='d-flex align-items-center bg-dark' style='height: 60px;'>
-                    <h5 class='fw-semi-bold text-primary text-truncate m-0 mx-4'>$t[judul]</h5>
-                    <a class='btn ms-auto' href='foto/galleri/$t[gambar]' data-lightbox='service'>+</a>
-                </div>
+<!-- Projects Start -->
+    <div class='container-xxl py-5'>
+        <div class='container'>
+            <div class='text-center mx-auto wow fadeInUp' data-wow-delay='0.1s' style='max-width: 500px;'>
+                <p class='fs-5 fw-bold text-primary'>Galeri</p>
+                <h1 class='display-5 mb-5'>Galeri Podok Pesantren Kami</h1>
             </div>
-        </div>";
-}
-  echo" <!-- More portfolio items go here --> 
-  </div>
-  <!-- <div class='row mt-5'>
-        <div class='col-12 text-center wow fadeIn' data-wow-delay='0.1s'>
-            <a class='btn btn-primary py-3 px-5' href='#'>Load More</a>
+           
+            <div class='row g-4 portfolio-container'> ";
+            $tebaru=mysqli_query($koneksi," SELECT * FROM galeri ORDER BY id_galeri DESC LIMIT 4");              
+        while ($t=mysqli_fetch_array($tebaru)){
+                
+                echo"
+            <div class='col-lg-4 col-md-6 portfolio-item first wow fadeInUp' data-wow-delay='0.1s'>
+                    <div class='portfolio-inner rounded'>
+                        <img class='img-fluid' src='foto/galleri/$t[gambar]' alt=''>
+                        <div class='portfolio-text'>
+                            <h4 class='text-white mb-4'>$t[judul]</h4>
+                            <div class='d-flex'>
+                                <a class='btn btn-lg-square rounded-circle mx-2' href='foto/galleri/$t[gambar]' data-lightbox='portfolio'><i class='fa fa-eye'></i></a>
+                                <a class='btn btn-lg-square rounded-circle mx-2' href=''><i class='fa fa-link'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+              echo"
+            </div>
         </div>
-    </div>  --> 
-</div>
-</div>
+    </div>
+    <!-- Projects End -->
 ";
 
 }
