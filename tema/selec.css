@@ -1,0 +1,22 @@
+/* CSS untuk elemen select */
+select.form-selec {
+  width: 100%;
+  padding: 8px; /* Atur padding sesuai kebutuhan */
+  font-size: 16px; /* Atur ukuran font sesuai kebutuhan */
+  border: 1px solid #ced4da; /* Atur tampilan border */
+  border-radius: 5px; /* Atur border-radius sesuai kebutuhan */
+  background-color: #fff; /* Atur warna background */
+  color: #495057; /* Atur warna teks */
+}
+
+/* CSS untuk tombol dropdown */
+select.form-selec:focus {
+  outline: 0;
+  border-color: #80bdff; /* Atur warna border ketika focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Atur shadow ketika focus */
+}
+
+/* CSS untuk option dalam dropdown */
+select.form-selec option {
+  padding: 8px; /* Atur padding sesuai kebutuhan */
+}
