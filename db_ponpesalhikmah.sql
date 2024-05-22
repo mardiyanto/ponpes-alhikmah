@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Apr 2024 pada 10.34
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 5.6.40
+-- Generation Time: 20 Mei 2024 pada 16.27
+-- Versi Server: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -83,7 +83,7 @@ CREATE TABLE `daftar` (
   `tempat_lahir` varchar(128) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
   `asal_sekolah` varchar(128) DEFAULT NULL,
-  `id_jurusan` varchar(30) DEFAULT NULL,
+  `jurusan` varchar(100) DEFAULT NULL,
   `agama` varchar(50) DEFAULT NULL,
   `alamat` text,
   `rt` varchar(5) DEFAULT NULL,
@@ -127,6 +127,13 @@ CREATE TABLE `daftar` (
   `id_sesi` varchar(200) DEFAULT NULL,
   `token` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `daftar`
+--
+
+INSERT INTO `daftar` (`id_daftar`, `no_daftar`, `program`, `jenis`, `nik`, `nisn`, `nama`, `warga_siswa`, `foto`, `jenis_kelamin`, `tempat_lahir`, `tgl_lahir`, `asal_sekolah`, `jurusan`, `agama`, `alamat`, `rt`, `rw`, `desa`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `transportasi`, `no_hp`, `email`, `waktu`, `nama_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `nama_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `no_ijazah`, `no_shun`, `no_ujian`, `no_kip`, `kip`, `kk`, `kepala_keluarga`, `ijazah`, `akta`, `status_upload`, `aktif`, `status`, `tgl_daftar`, `tgl_konfirmasi`, `konfirmasi`, `password`, `show_pass`, `id_sesi`, `token`) VALUES
+(1, 'MONDOK/20240520/001/20:08:52', 'Salafi', '', '1820706109100034', '089526007843', 'MARDI mardiyanto', 'WNI', '664b530b6c278.png', 'laki-laki', 'Gunung Sugih ', '2024-05-20', '', 'HANYA MONDOK', '', 'jalan johar perumahan perdana village no. a40\r\npodomoro', '36', '6', 'FAJAR BARU', 'PAGELARAN UTARA', 'KABUPATEN PRINGSEWU', 'LAMPUNG', '35371', '', '082373971991', 'mardybest@gmail.com', '20:09:00', 'haminah', 'smk', 'tani', '1000000', '082373971991', 'suryadi', 'smk', 'tani', '100000', '082373971991', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 0, 1, '2024-05-20', NULL, 0, NULL, NULL, '434776579023', NULL);
 
 -- --------------------------------------------------------
 
@@ -204,7 +211,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id_profil`, `nama_app`, `tahun`, `nama`, `alias`, `alamat`, `isi`, `gambar`, `akabest`) VALUES
-(1, 'PONPES AL-HIDAYAH', '2022/2023', 'PONDOK PESANTREN AL-HIDAYAH KEPUTREN PRINGSEWU', 'PONPES', 'JL Raya Veteran No. 300 Pekon Keputran Kec.Sukoharjo Kabupten Pringsewu Lampung', '<p>Puji syukur kami panjatkan ke hadirat Allah SWT, karena atas segala limpahan rahmat dan hidayah-Nya, kami dapat menyambut kehadiran sebuah inovasi baru di Pondok Pesantren Al-Hidayah Keputran Pringsewu, yaitu berdirinya website resmi pondok pesantren kami.</p>\r\n\r\n<p>Sebagai pengurus, kami sangat bangga dan berterima kasih atas dukungan serta partisipasi semua pihak yang telah turut berkontribusi dalam proses pembangunan dan peluncuran website ini. Website ini bukan hanya sekadar wadah informasi, tetapi juga merupakan langkah maju kami dalam memanfaatkan teknologi informasi untuk meningkatkan kualitas layanan pendidikan dan dakwah di lingkungan pondok pesantren.</p>\r\n\r\n<p>Melalui website ini, kami berharap dapat memberikan akses yang lebih luas bagi masyarakat, termasuk calon santri dan orang tua, untuk mendapatkan informasi tentang program-program pendidikan, kegiatan-kegiatan keagamaan, serta berbagai prestasi dan pencapaian yang telah diraih oleh pondok pesantren kami.</p>\r\n\r\n<p>Kami juga berkomitmen untuk terus mengembangkan dan memperbarui konten-konten yang ada dalam website ini, sehingga dapat selalu memberikan informasi yang akurat, relevan, dan bermanfaat bagi semua pihak yang mengunjungi website kami.</p>\r\n\r\n<p>Terima kasih kepada seluruh tim yang telah bekerja keras dalam pembangunan website ini, serta kepada semua pihak yang telah memberikan dukungan dan doa restu. Semoga website Pondok Pesantren Al-Hidayah Keputran Pringsewu ini dapat menjadi sarana yang bermanfaat dan memberikan manfaat yang besar bagi kita semua.</p>\r\n', '28042024084839.jpg', 'mardybest@gmail.com'),
+(1, 'PONPES AL-HIDAYAH KEPUTREN', '2022/2023', 'PONDOK PESANTREN AL-HIDAYAH KEPUTREN PRINGSEWU', 'PONPES', 'JL Raya Veteran No. 300 Pekon Keputran Kec.Sukoharjo Kabupten Pringsewu Lampung', '<p>Puji syukur kami panjatkan ke hadirat Allah SWT, karena atas segala limpahan rahmat dan hidayah-Nya, kami dapat menyambut kehadiran sebuah inovasi baru di Pondok Pesantren Al-Hidayah Keputran Pringsewu, yaitu berdirinya website resmi pondok pesantren kami.</p>\r\n\r\n<p>Sebagai pengurus, kami sangat bangga dan berterima kasih atas dukungan serta partisipasi semua pihak yang telah turut berkontribusi dalam proses pembangunan dan peluncuran website ini. Website ini bukan hanya sekadar wadah informasi, tetapi juga merupakan langkah maju kami dalam memanfaatkan teknologi informasi untuk meningkatkan kualitas layanan pendidikan dan dakwah di lingkungan pondok pesantren.</p>\r\n\r\n<p>Melalui website ini, kami berharap dapat memberikan akses yang lebih luas bagi masyarakat, termasuk calon santri dan orang tua, untuk mendapatkan informasi tentang program-program pendidikan, kegiatan-kegiatan keagamaan, serta berbagai prestasi dan pencapaian yang telah diraih oleh pondok pesantren kami.</p>\r\n\r\n<p>Kami juga berkomitmen untuk terus mengembangkan dan memperbarui konten-konten yang ada dalam website ini, sehingga dapat selalu memberikan informasi yang akurat, relevan, dan bermanfaat bagi semua pihak yang mengunjungi website kami.</p>\r\n\r\n<p>Terima kasih kepada seluruh tim yang telah bekerja keras dalam pembangunan website ini, serta kepada semua pihak yang telah memberikan dukungan dan doa restu. Semoga website Pondok Pesantren Al-Hidayah Keputran Pringsewu ini dapat menjadi sarana yang bermanfaat dan memberikan manfaat yang besar bagi kita semua.</p>\r\n', '28042024084839.jpg', 'mardybest@gmail.com'),
 (2, 're', '', 'MARDIYANTO', '19081989578978975', '', '', '', '');
 
 -- --------------------------------------------------------
@@ -233,105 +240,97 @@ INSERT INTO `user` (`user_id`, `user_nama`, `user_username`, `user_password`, `u
 --
 
 --
--- Indeks untuk tabel `alumni`
+-- Indexes for table `alumni`
 --
 ALTER TABLE `alumni`
   ADD PRIMARY KEY (`id_alumni`);
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
--- Indeks untuk tabel `daftar`
+-- Indexes for table `daftar`
 --
 ALTER TABLE `daftar`
   ADD PRIMARY KEY (`id_daftar`);
 
 --
--- Indeks untuk tabel `galeri`
+-- Indexes for table `galeri`
 --
 ALTER TABLE `galeri`
   ADD PRIMARY KEY (`id_galeri`);
 
 --
--- Indeks untuk tabel `kritik`
+-- Indexes for table `kritik`
 --
 ALTER TABLE `kritik`
   ADD PRIMARY KEY (`id_kritik`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indeks untuk tabel `profil`
+-- Indexes for table `profil`
 --
 ALTER TABLE `profil`
   ADD PRIMARY KEY (`id_profil`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `alumni`
+-- AUTO_INCREMENT for table `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT untuk tabel `daftar`
+-- AUTO_INCREMENT for table `daftar`
 --
 ALTER TABLE `daftar`
-  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `galeri`
+-- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
   MODIFY `id_galeri` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT untuk tabel `kritik`
+-- AUTO_INCREMENT for table `kritik`
 --
 ALTER TABLE `kritik`
   MODIFY `id_kritik` int(40) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id_pegawai` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT untuk tabel `profil`
+-- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
   MODIFY `id_profil` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

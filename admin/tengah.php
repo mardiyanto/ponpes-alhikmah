@@ -1,19 +1,94 @@
 <?php
 ///////////////////////////lihat/////////////////////////////////////////////
 if($_GET['aksi']=='home'){
+    
+$tahunSekarang = date('Y');
+// Query untuk menghitung jumlah pendaftar berdasarkan tahun saat ini
+$query = "SELECT COUNT(*) AS jumlah_pendaftar FROM daftar WHERE YEAR(tgl_daftar) = '$tahunSekarang' and  status='0'";
+$result = mysqli_query($koneksi, $query);
+$row = mysqli_fetch_assoc($result);
+
+$sql = "SELECT COUNT(*) AS jmlterima FROM daftar WHERE YEAR(tgl_daftar) = '$tahunSekarang' and  status='1'";
+$hasil = mysqli_query($koneksi, $sql);
+$t = mysqli_fetch_assoc($hasil);
+
+$mysql = "SELECT COUNT(*) AS sdhup FROM daftar WHERE YEAR(tgl_daftar) = '$tahunSekarang' and  status_upload='1'";
+$lite = mysqli_query($koneksi, $mysql);
+$r = mysqli_fetch_assoc($lite);
+
+$mysql1 = "SELECT COUNT(*) AS blup FROM daftar WHERE YEAR(tgl_daftar) = '$tahunSekarang' and  status_upload='0'";
+$lite1 = mysqli_query($koneksi, $mysql1);
+$x = mysqli_fetch_assoc($lite1);
+
+$kategori=mysqli_query($koneksi, "SELECT COUNT(id_daftar) as ka FROM daftar WHERE status='1'");
+$kate=mysqli_fetch_array($kategori);
+
 echo"
- <div class='row'>
-                   <div class='col-lg-12'>
-			<div class='panel panel-default'>
-                            <div class='panel-heading'>
-                           Sambutan
-                            </div>
-                            <div class='panel-body'>                         
-				<p>Selamat Datang Di halaman Admin, Silahkan Pilih menu untuk pengaturan data yang di butuhkan guna mendapatkan hasil yang maksimal sesuai keinginan.</p>
-                            </div>
-			</div>
-                   </div>
-</div>";
+<!-- Small boxes (Stat box) -->
+<div class='row'>
+  <div class='col-lg-3 col-xs-6'>
+    <!-- small box -->
+    <div class='small-box bg-aqua'>
+      <div class='inner'>
+        <h3> $row[jumlah_pendaftar]</h3>
+        <p>Pendaftar Baru</p>
+      </div>
+      <div class='icon'>
+        <i class='fa fa-shopping-cart'></i>
+      </div>
+      <a href='index.php?aksi=mhs' class='small-box-footer'>
+        More info <i class='fa fa-arrow-circle-right'></i>
+      </a>
+    </div>
+  </div><!-- ./col -->
+  <div class='col-lg-3 col-xs-6'>
+    <!-- small box -->
+    <div class='small-box bg-green'>
+      <div class='inner'>
+        <h3>$t[jmlterima]</h3>
+        <p>Pendaftar Diterima</p>
+      </div>
+      <div class='icon'>
+        <i class='ion ion-stats-bars'></i>
+      </div>
+      <a href='index.php?aksi=mhsterima' class='small-box-footer'>
+        More info <i class='fa fa-arrow-circle-right'></i>
+      </a>
+    </div>
+  </div><!-- ./col -->
+  <div class='col-lg-3 col-xs-6'>
+    <!-- small box -->
+    <div class='small-box bg-yellow'>
+      <div class='inner'>
+        <h3>$r[sdhup]</h3>
+        <p>sudah lengkap</p>
+      </div>
+      <div class='icon'>
+        <i class='ion ion-person-add'></i>
+      </div>
+      <a href='#' class='small-box-footer'>
+        More info <i class='fa fa-arrow-circle-right'></i>
+      </a>
+    </div>
+  </div><!-- ./col -->
+  <div class='col-lg-3 col-xs-6'>
+    <!-- small box -->
+    <div class='small-box bg-red'>
+      <div class='inner'>
+        <h3>$x[blup]</h3>
+        <p>belum lengkap</p>
+      </div>
+      <div class='icon'>
+        <i class='ion ion-pie-graph'></i>
+      </div>
+      <a href='#' class='small-box-footer'>
+        More info <i class='fa fa-arrow-circle-right'></i>
+      </a>
+    </div>
+  </div><!-- ./col -->
+</div><!-- /.row -->";
+include "grafik.php";
+
 
 echo"<div class='row'>
                     <div class='col-xs-12'>
@@ -49,6 +124,162 @@ echo"<div class='row'>
 elseif($_GET['aksi']=='ikon'){
 include "../ikon.php";
 }
+elseif($_GET['aksi']=='mhs'){
+    echo"<div class='row'>
+                    <div class='col-lg-12'>
+                        <div class='panel panel-default'>
+                            <div class='panel-heading'>INFORMASI 
+                            </div>
+                            <div class='panel-body'>	
+                          <a href='index.php?aksi=mhs' class='btn btn-info' ><i class='fa fa-arrows-h'></i>Baru</a>
+                          <a href='index.php?aksi=mhsterima' class='btn btn-info' ><i class='fa fa-arrows-h'></i>Di terima</a><br><br>
+                                   <div class='table-responsive'>		
+         <table id='example1' class='table table-bordered table-striped'>
+                                        <thead>
+                                            <tr>
+                                            <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Wa</th>	
+                                                <th>Status</th>		  
+                                          </tr></thead>
+                        <tbody>
+                        ";
+                
+    $no=0;
+    $tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE status='0' ORDER BY daftar.id_daftar DESC");
+    while ($t=mysqli_fetch_array($tebaru)){	
+    $no++;
+    $nomor_hp = $t['no_hp']; // Nomor telepon dengan format lokal
+    if (substr($nomor_hp, 0, 1) === '0') {
+        $nomor_hp = '+62' . substr($nomor_hp, 1); // Ubah format nomor ke format internasional
+    }
+    
+                                        echo"                   
+                                        <tr>
+                                            <td>$no</td>
+                                            <td>$t[nama]</td>
+                                            <td><a href='https://api.whatsapp.com/send?phone=$nomor_hp&text=Assalamu%20Alaikum%20Mohon%20informasi%20Apakah Berminat Mendaftar Di IBN Lampung' target='_blank'>
+                                            $t[no_hp]
+                                            </a></td>
+                                            <td>";
+                                            if($t['status']=='0'){
+                                            echo"<button type='button' class='btn btn-info' data-toggle='modal' data-target='#$t[id_daftar]'>Baru</button>"; 
+                                            } else { 
+                                            echo"<button type='button' class='btn btn-info' data-toggle='modal' data-target='#$t[id_daftar]'>diterima</button>";
+                                              }
+                                            echo"</td>
+                                            </tr>
+                                            <!-- Modal -->
+                                            <div class='modal fade' id='$t[id_daftar]' role='dialog'>
+                                                <div class='modal-dialog modal-lg'>
+                                                <div class='modal-content'>
+                                                    <div class='modal-header'>
+                                                    <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                                    <h4 class='modal-title'>Modal Header</h4>
+                                                    </div>
+                                                    <div class='modal-body'>
+                                                    <p>"; include "profil.php"; echo"</p>
+                                                    </div>
+                                                    <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <!-- end Modal -->";
+    }
+                                      echo"  </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   </div>		
+        
+          ";			
+    
+    }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+elseif($_GET['aksi']=='prosesedit'){
+    mysqli_query($koneksi,"UPDATE daftar SET status='1' WHERE id_daftar='$_GET[id_daftar]'");
+    echo "<script>window.alert('DATA BERHASIL DI SIMPAN'); window.location=('index.php?aksi=mhsterima')</script>";
+    }
+    elseif($_GET['aksi']=='mhsterima'){
+        echo"<div class='row'>
+        <div class='col-lg-12'>
+            <div class='panel panel-default'>
+                <div class='panel-heading'>INFORMASI 
+                </div>
+                <div class='panel-body'>	
+                <a href='index.php?aksi=mhs' class='btn btn-info' ><i class='fa fa-arrows-h'></i>Baru</a>
+                <a href='index.php?aksi=mhsterima' class='btn btn-info' ><i class='fa fa-arrows-h'></i>Di terima</a><br><br>
+                       <div class='table-responsive'>		
+    <table id='example1' class='table table-bordered table-striped'>
+                            <thead>
+                                <tr>
+                                <th>No</th>
+                                    <th>Nama Menu</th>
+                                    <th>Wa</th>	
+                                    <th>Status</th>		  
+                              </tr></thead>
+            <tbody>
+            ";
+    
+    $no=0;
+    $tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE status='1' ORDER BY daftar.id_daftar DESC");
+    while ($t=mysqli_fetch_array($tebaru)){	
+    $no++;
+    $nomor_hp = $t['no_hp']; // Nomor telepon dengan format lokal
+    if (substr($nomor_hp, 0, 1) === '0') {
+    $nomor_hp = '+62' . substr($nomor_hp, 1); // Ubah format nomor ke format internasional
+    }
+    
+                            echo"                   
+                            <tr>
+                                <td>$no</td>
+                                <td>$t[nama]</td>
+                                <td><a href='https://api.whatsapp.com/send?phone=$nomor_hp&text=Assalamu%20Alaikum%20Mohon%20informasi%20Apakah Berminat Mendaftar Di IBN Lampung' target='_blank'>
+                                $t[no_hp]
+                                </a></td>
+                                <td>";
+                                if($t['status']=='0'){
+                                echo"<button type='button' class='btn btn-info' data-toggle='modal' data-target='#$t[id_daftar]'>Baru</button>"; 
+                                } else { 
+                                echo"<button type='button' class='btn btn-info' data-toggle='modal' data-target='#$t[id_daftar]'>diterima</button>";
+                                  }
+                                echo"</td>
+                                </tr>
+                                <!-- Modal -->
+                                <div class='modal fade' id='$t[id_daftar]' role='dialog'>
+                                    <div class='modal-dialog modal-lg'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                        <h4 class='modal-title'>Modal Header</h4>
+                                        </div>
+                                        <div class='modal-body'>
+                                        <p>"; include "profil.php"; echo"</p>
+                                        </div>
+                                        <div class='modal-footer'>
+                                        <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <!-- end Modal -->";
+    }
+                          echo"  </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>		
+    
+    ";			
+    }
 elseif($_GET['aksi']=='profil'){
 echo"			
 	<div class='row'>

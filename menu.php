@@ -50,7 +50,7 @@ while ($r=mysqli_fetch_array($sql)){
                 
                 <a href="utama.php?aksi=hubungi" class="nav-item nav-link">Hubungi Kami</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">Daftar<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="#daftar" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">Daftar<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->

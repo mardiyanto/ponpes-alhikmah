@@ -30,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="tema/css/style.css" rel="stylesheet">
+    <link href="tema/selec.css" rel="stylesheet">
 </head>
 
 <body>

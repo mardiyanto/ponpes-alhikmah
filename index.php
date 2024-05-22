@@ -58,7 +58,7 @@ include "koneksi.php";
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">Tempat Ilmu, Akhlak, dan Kebangkitan Masa Depan</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Daftar</a>
+                                    <a href="#daftar" class="btn btn-primary py-sm-3 px-sm-4">Daftar</a>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ include "koneksi.php";
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
                                     <h1 class="display-1 text-white mb-5 animated slideInDown">Membangun Generasi Sesuai Ahlussunnah wal Jama'ah</h1>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-4">Daftar</a>
+                                    <a href="#daftar" class="btn btn-primary py-sm-3 px-sm-4">Daftar</a>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +153,7 @@ include "koneksi.php";
                     <h1 class="display-1 text-primary mb-0">Sambutan Ketua Yayasan</h1>
                     <p class="text-primary mb-4">Assalamu'alaikum Wr. Wb.</p>
                     <p class="mb-4"><?php echo"$k_k[isi]"; ?></p>                   
-<a class="btn btn-primary py-3 px-4" href="">Daftar</a>
+<a class="btn btn-primary py-3 px-4" href="#daftar">Daftar</a>
                 </div>
                 
             </div>
@@ -167,19 +167,19 @@ include "koneksi.php";
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
-                    <span class="fs-5 fw-semi-bold text-light">Siswa</span>
+                    <h1 class="display-4 text-white" data-toggle="counter-up">358</h1>
+                    <span class="fs-5 fw-semi-bold text-light">Siswa/Santri</span>
                 </div>
                 <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
+                    <h1 class="display-4 text-white" data-toggle="counter-up">30</h1>
                     <span class="fs-5 fw-semi-bold text-light">Guru/Tenaga Pendidik</span>
                 </div>
                 <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
+                    <h1 class="display-4 text-white" data-toggle="counter-up">570</h1>
                     <span class="fs-5 fw-semi-bold text-light">Alumni</span>
                 </div>
                 <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                    <h1 class="display-4 text-white" data-toggle="counter-up">1234</h1>
+                    <h1 class="display-4 text-white" data-toggle="counter-up">50</h1>
                     <span class="fs-5 fw-semi-bold text-light">Siswa Berprestasi</span>
                 </div>
             </div>
@@ -196,7 +196,7 @@ include "koneksi.php";
                     <p class="fs-5 fw-bold text-primary">Kenapa Milih Kami !</p>
                     <h1 class="display-5 mb-4">Beberapa siswa milih ke tempat kami bukan karna sebuah alasan </h1>
                     <p class="mb-4">Pondok pesatran kami merupakan Tempat  Menemukan Diri, Mencari Ilmu, Menyucikan Hati</p>
-                    <a class="btn btn-primary py-3 px-4" href="">Daftar</a>
+                    <a class="btn btn-primary py-3 px-4" href="#daftar">Daftar</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="row g-4 align-items-center">
@@ -272,29 +272,47 @@ while ($t=mysqli_fetch_array($tebaru)){ ?>
 
 
     <!-- Quote Start -->
-    <div class="container-fluid quote my-5 py-5" data-parallax="scroll" data-image-src="tema/img/carousel-2.jpg">
+    <div class="container-fluid quote my-5 py-5" id='daftar' data-parallax="scroll" data-image-src="tema/img/carousel-2.jpg">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="bg-white rounded p-4 p-sm-5 wow fadeIn" data-wow-delay="0.5s">
                         <h1 class="display-5 text-center mb-5">Daftar Sekarang</h1>
-                        <div class="row g-3">
+                        <?php
+$i = date("Ymd");
+$j = gmdate('H:i:s', time() + 60 * 60 * 7);
+$sql = mysqli_query($koneksi, 'SELECT RIGHT(id_daftar, 3) AS id_daftar FROM daftar ORDER BY id_daftar DESC LIMIT 1') or die('Error : ' . mysqli_error($koneksi));
+$num = mysqli_num_rows($sql);
+if ($num <> 0) {
+    $data = mysqli_fetch_array($sql);
+    $kode = $data['id_daftar'] + 1;
+} else {
+    $kode = 1;
+}
+// Mulai bikin kode
+$bikin_kode = str_pad($kode, 3, "0", STR_PAD_LEFT);
+$kode_jadi = "$bikin_kode";
+?>
+                        <form id="myForm"  method='post' action='int.php?m=daftar'>
+                            <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control bg-light border-0" id="gname" placeholder="Gurdian Name">
+                                    <input type="hidden"  name="no_daftar" value="<?php echo"MONDOK/$i/$kode_jadi/$j"; ?>" placeholder="Email">
+                                    <input type="hidden"  name="id_daftar" value="<?php echo"$i"; ?>" placeholder="Email">
+                                    <input type="text" class="form-control bg-light border-0" name='nama' id="gname" placeholder="Nama Lengkap">
                                     <label for="gname">Nama Lengkap</label>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control bg-light border-0" id="gmail" placeholder="Gurdian Email">
+                                    <input type="email" class="form-control bg-light border-0" name="email" id="gmail" placeholder="Email">
                                     <label for="gmail">Email</label>
                                 </div>
                             </div>
                             
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control bg-light border-0" id="cname" placeholder="Child Name">
+                                    <input type="text" class="form-control bg-light border-0" name="no_hp" id="cname" placeholder="Child Name">
                                     <label for="cname">Nomor HP</label>
                                 </div>
                             </div>
@@ -302,9 +320,9 @@ while ($t=mysqli_fetch_array($tebaru)){ ?>
                                 <div class="form-floating">
                                     <!-- <input type="text" class="form-control bg-light border-0" id="cage" placeholder="Child Age"> -->
                                     <select class='form-control select2' style='width: 100%;' name='program' id='program' required>
-                                            <option value='normal'>----Pilih Program Sekolah----</option>
-                                            <option value='normal'>Normal</option>
-                                            <option value='rpl'>RPL 2 TAHUN</option>
+                                            <option value='Salafi'>----Pilih Program Pondok Pesantren----</option>
+                                            <option value='Salafi'>Salafi</option>
+                                            <option value="Tahfidzul Qur'an">Tahfidzul Qur'an</option>
                                             </select>
                                     <label for="cage">Jenjang</label>
                                     
@@ -312,7 +330,7 @@ while ($t=mysqli_fetch_array($tebaru)){ ?>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control bg-light border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control bg-light border-0" placeholder="Leave a message here" name='alamat' id="message" style="height: 100px"></textarea>
                                     <label for="message">Alamat Legkap</label>
                                 </div>
                             </div>
@@ -320,6 +338,7 @@ while ($t=mysqli_fetch_array($tebaru)){ ?>
                                 <button class="btn btn-primary py-3 px-4" type="submit">Daftar Sekarang</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
