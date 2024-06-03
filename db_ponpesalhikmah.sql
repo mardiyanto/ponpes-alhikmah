@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Mei 2024 pada 16.27
+-- Generation Time: 03 Jun 2024 pada 16.02
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -36,6 +36,14 @@ CREATE TABLE `alumni` (
   `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `alumni`
+--
+
+INSERT INTO `alumni` (`id_alumni`, `nama`, `pekerjaan`, `keterangan`, `gambar`) VALUES
+(1, 'Mahmudin Wibowo', 'Mahasiswa', 'Saya Alumni Pondok Pesantren Al-Hidayah Keputran Tahun 2010', '25052024095822.jpg'),
+(2, 'KH. Munawir', 'Pengasuh Pondok Pesantren', 'Saya Alumni Tahun 2005 sekarang saya sudah mempunyai pesantren, berkat beliau KH. Imam Asrori saya bisa menjadi pengasuh pesantren', '25052024100255.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -58,9 +66,16 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `judul`, `tanggal`, `jam`, `isi`, `dilihat`, `gambar`, `jenis`) VALUES
-(1, 'Rapat Koordinasi Lintas Sektor Bahas Rancangan RDTR Wilayah Perencanaan Ulu Belu Tanggamus', '19/04/2024', '2024-04-18 23:23:06', '<p><strong>Tanggamus, 18 April 2024</strong> - Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) Kabupaten Tanggamus menggelar rapat koordinasi lintas sektor untuk membahas Rancangan Peraturan Kepala Daerah tentang Rencana Tata Ruang (RDTR) Wilayah Perencanaan Ulu Belu. Rapat yang berlangsung melalui Aplikasi Teleconference Berbasis Badan Usaha Negara (ATB-BA BUN) tersebut bertujuan untuk menyusun RDTR yang menjadi landasan dalam pengembangan wilayah tersebut.</p>\r\n\r\n<p>Rapat yang dihadiri oleh berbagai pihak terkait, antara lain dari Dinas Lingkungan Hidup, Dinas Perhubungan, Dinas Pendidikan, Dinas Kesehatan, serta unsur-unsur terkait lainnya, membahas berbagai aspek penting dalam penyusunan RDTR. Salah satu fokus utama adalah menjamin bahwa rencana tata ruang yang dibuat akan memperhatikan kebutuhan masyarakat serta menjaga keseimbangan antara pengembangan wilayah dengan pelestarian lingkungan.</p>\r\n\r\n<p>Dalam sambutannya, Kepala Dinas PUPR Kabupaten Tanggamus, Bapak  Riswanda Djunaidi, S.E., M.M, menekankan pentingnya sinergi antara berbagai sektor dalam merumuskan RDTR yang berkualitas dan berkelanjutan. Beliau juga menekankan perlunya memperhatikan aspek keberlanjutan dalam setiap kegiatan pembangunan wilayah.</p>\r\n\r\n<p>\"Rancangan RDTR yang akan kita susun haruslah mengakomodasi kepentingan semua pihak, mulai dari kebutuhan masyarakat, pelestarian lingkungan, hingga aspek pembangunan ekonomi. Mari kita jalin kerjasama yang baik dalam merumuskan RDTR yang akan menjadi panduan pembangunan wilayah ke depan,\" ujar Bapak  Riswanda Djunaidi, S.E., M.M.</p>\r\n\r\n<p>Selama rapat, peserta aktif menyampaikan berbagai masukan dan pendapat untuk memperkaya pembahasan RDTR. Diskusi dipimpin oleh tim ahli dari Dinas PUPR yang telah melakukan studi mendalam terkait karakteristik dan potensi wilayah Perencanaan Ulu Belu.</p>\r\n\r\n<p>Rapat koordinasi ini diharapkan dapat menghasilkan RDTR yang komprehensif dan berkelanjutan, yang nantinya akan menjadi dasar dalam pengambilan kebijakan pembangunan wilayah yang terencana dan terarah.</p>\r\n', 0, '18042024100854.jpg', 'informasi'),
-(2, 'Kepala Dinas PUPR Kabupaten Tanggamus Dorong Inovasi dan Sinergi dalam Pembangunan Infrastruktur', '18/04/2024', '2024-04-18 15:18:09', '<p><strong>Tanggamus, 18 April 2024</strong> - Kepala Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) Kabupaten Tanggamus, Bapak Riswanda Djunaidi, S.E., M.M., menegaskan komitmennya dalam mendorong inovasi dan sinergi dalam pembangunan infrastruktur di wilayah tersebut. Dalam sebuah wawancara, beliau berbagi visi dan rencana kerjanya untuk memajukan sektor PUPR demi kesejahteraan masyarakat.</p>\r\n\r\n<p>Bapak Riswanda menyatakan bahwa salah satu fokus utamanya adalah menggalakkan inovasi dalam pembangunan infrastruktur. Menurutnya, penggunaan teknologi terkini dan pendekatan inovatif dalam desain dan pelaksanaan proyek dapat meningkatkan efisiensi dan kualitas infrastruktur yang dibangun.</p>\r\n\r\n<p>&quot;Saat ini, kita harus terus berinovasi agar dapat menangani tantangan-tantangan baru dalam pembangunan infrastruktur. Saya akan mendorong tim saya untuk mengadopsi teknologi terbaru dan memanfaatkan pendekatan inovatif dalam setiap proyek yang kami jalankan,&quot; ujar Bapak Riswanda.</p>\r\n\r\n<p>Selain itu, Bapak Riswanda juga menekankan pentingnya sinergi antara berbagai pihak terkait dalam pembangunan infrastruktur. Menurutnya, kolaborasi yang erat antara pemerintah, sektor swasta, dan masyarakat sangatlah penting untuk mencapai pembangunan yang berkelanjutan dan inklusif.</p>\r\n\r\n<p>&quot;Dalam menghadapi kompleksitas pembangunan infrastruktur, sinergi antara pemerintah, sektor swasta, dan masyarakat sangatlah krusial. Saya akan berupaya membangun kemitraan yang kuat dan memastikan partisipasi aktif dari semua pihak terkait dalam setiap tahapan proyek,&quot; tambahnya.</p>\r\n\r\n<p>Bapak Riswanda juga menegaskan komitmennya untuk menjaga transparansi dan akuntabilitas dalam setiap kegiatan Dinas PUPR. Beliau berjanji untuk melaksanakan tugasnya dengan penuh integritas dan bertanggung jawab demi kepentingan masyarakat Kabupaten Tanggamus.</p>\r\n\r\n<p>Dengan semangat inovasi, sinergi, dan integritas, Bapak Riswanda Djunaidi, S.E., M.M., siap memimpin Dinas PUPR Kabupaten Tanggamus menuju pembangunan infrastruktur yang berkualitas, berkelanjutan, dan mensejahterakan masyarakat.</p>\r\n', 0, '18042024101809.jpg', 'informasi'),
-(3, 'Dinas PUPR Kabupaten Tanggamus Bersama Dinas Pertanian dan Warga Tinjau Sungai Way Pihabung untuk Solusi Irigasi Petani', '18/04/2024', '2024-04-18 15:21:27', '<p><strong>Tanggamus, 18 April 2024</strong> - Dalam upaya menindaklanjuti keluhan petani terkait sistem irigasi di Sungai Way Pihabung, Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) Kabupaten Tanggamus bersama Dinas Pertanian dan warga setempat melakukan tinjauan langsung ke lokasi. Upaya ini dilakukan untuk memahami masalah yang dihadapi oleh petani dan mencari solusi yang tepat guna meningkatkan kualitas irigasi yang mendukung pertanian di wilayah tersebut.</p>\r\n\r\n<p>Bertempat di sepanjang Sungai Way Pihabung, rombongan dari Dinas PUPR dan Dinas Pertanian didampingi oleh sejumlah petani setempat menyusuri daerah sekitar sungai. Mereka secara langsung mengamati kondisi saluran irigasi, debit air, serta infrastruktur pendukung lainnya.</p>\r\n\r\n<p>Bapak Riswanda Djunaidi, S.E., M.M., Kepala Dinas PUPR Kabupaten Tanggamus, menekankan pentingnya keterlibatan aktif dari berbagai pihak dalam menyelesaikan masalah infrastruktur seperti ini. &quot;Kami memandang penting untuk mendengarkan langsung keluhan dan masukan dari petani, karena merekalah yang paling merasakan dampak dari kondisi infrastruktur yang kurang memadai,&quot; ujarnya.</p>\r\n\r\n<p>Selama tinjauan, terungkap bahwa banyak petani mengalami kesulitan akibat penyumbatan dan kerusakan pada saluran irigasi. Hal ini mengakibatkan pengairan yang tidak merata dan seringkali tidak mencukupi kebutuhan tanaman, yang berdampak negatif pada hasil panen mereka.</p>\r\n\r\n<p>Dalam rangka menanggapi masalah ini, tim dari Dinas PUPR dan Dinas Pertanian melakukan pemantauan yang cermat terhadap kondisi sungai dan infrastruktur irigasi yang ada. Mereka juga melakukan diskusi dengan warga setempat untuk mengumpulkan masukan dan saran dalam rangka perbaikan.</p>\r\n\r\n<p>&quot;Kami akan segera menyusun rencana perbaikan yang komprehensif berdasarkan hasil tinjauan ini. Upaya kami tidak hanya akan fokus pada perbaikan infrastruktur fisik, tetapi juga pada pengelolaan yang lebih efisien dan pengawasan yang lebih ketat untuk memastikan sistem irigasi yang lebih baik di masa depan,&quot; ungkap Bapak Riswanda.</p>\r\n\r\n<p>Tinjauan ini merupakan salah satu contoh nyata dari komitmen Dinas PUPR Kabupaten Tanggamus dalam mendengarkan dan bertindak sesuai dengan kebutuhan masyarakat. Dengan melibatkan berbagai pihak terkait dan mendengarkan suara petani, diharapkan solusi yang dihasilkan akan memberikan manfaat yang nyata bagi pertanian lokal dan kesejahteraan masyarakat.</p>\r\n', 0, '18042024102127.jpg', 'informasi'),
+(7, 'Festival Jamiyyah Nahdlatut Thulab Pondok Pesantern AL-Hidayah Keputran', '24/05/2024', '2024-05-24 03:59:39', '<p>Festival Jamiyyah Nahdlatul Thulab Merupakan Kegiatan Akhir Tahun Madrasah Diniyah Pondok Pesantren Al-Hidayah Keputran</p>\r\n', 0, '24052024105939.jpg', 'informasi'),
+(8, 'Song Song Bulan Ramadhan', '24/05/2024', '2024-05-24 04:05:03', '<p>&nbsp;</p>\r\n\r\n<p>Di Pondok Pesantren Al-Hidayah Keputran, bulan Ramadhan tiba dengan penuh keceriaan dan semangat. Di bawah teriknya sinar mentari, para santri mulai bersiap-siap menyambut bulan penuh berkah ini. Suasana pesantren dipenuhi dengan kegiatan ibadah dan pembelajaran agama yang intensif, menciptakan atmosfer spiritual yang menggugah hati.</p>\r\n', 0, '24052024110503.jpg', 'informasi'),
+(11, 'PPDB MTs dan SMK Maarif Keputran', '25/05/2024', '2024-05-25 02:11:14', '<p>Penerimaan Peserta Didik Baru (PPDB) Tahun Pelajaran 2024/2025 Sudah dibuka ayoo buruan daftar</p>\r\n', 0, '25052024091114.jpg', 'informasi'),
+(10, 'Penerimaan Santri Baru Tahun Pelajaran 2024/2025', '25/05/2024', '2024-05-25 02:08:14', '<p>Penerimaan Santri Baru (PSB) Tahun Pelajaran 2024/2025 Sudah dibuka segera daftarkan diri anda ayoo buruan daftar</p>\r\n', 0, '25052024090814.jpg', 'informasi'),
+(12, 'VISI MISI', '25/05/2024', '2024-05-25 02:40:44', '<p>Visi MISI</p>\r\n', 0, '25052024094044.jpg', 'halaman'),
+(13, 'SEJARAH PESANTREN', '25/05/2024', '2024-05-25 02:42:51', '<p>Sejarah Berdirinya Pondok Pesantren Al-Hidayah Keputran</p>\r\n', 0, '25052024094251.jpg', 'halaman'),
+(14, 'MADRASAH DINIYAH', '25/05/2024', '2024-05-25 02:44:51', '<p>Madrasah diniyah Pondok Pesantern Al-Hidayah</p>\r\n', 0, '25052024094451.jpg', 'halaman'),
+(15, 'DAWUH MASAYIKH', '25/05/2024', '2024-05-25 02:45:39', '<p>Ceramah</p>\r\n', 0, '25052024094539.jpg', 'halaman'),
+(16, 'ALUMNI', '25/05/2024', '2024-05-25 02:48:46', '<p>Foto Alumni</p>\r\n', 0, NULL, 'halaman'),
+(17, 'PRESTASI', '25/05/2024', '2024-05-25 02:49:11', '<p>Prestasi</p>\r\n', 0, '25052024094911.jpg', 'halaman'),
 (5, 'Tentang Kami', '19/04/2024', '2024-04-30 06:09:41', '<p>Dinas Pekerjaan Umum dan Perumahan Rakyat (PUPR) adalah sebuah lembaga pemerintah di Indonesia yang bertanggung jawab dalam pembangunan dan pengelolaan infrastruktur publik serta perumahan bagi masyarakat. Tugas utama dari Dinas PUPR adalah merencanakan, melaksanakan, dan mengawasi pembangunan serta pemeliharaan infrastruktur yang meliputi jalan, jembatan, irigasi, bendungan, gedung, fasilitas air minum, sanitasi, serta pembangunan perumahan untuk rakyat.</p>\r\n\r\n<p>Beberapa fungsi penting dari Dinas PUPR antara lain:</p>\r\n\r\n<ol>\r\n	<li>\r\n	<p><strong>Perencanaan Infrastruktur</strong>: Merencanakan pembangunan infrastruktur dan perumahan sesuai dengan kebutuhan masyarakat dan arah pembangunan nasional.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pelaksanaan Proyek</strong>: Melaksanakan pembangunan infrastruktur dan perumahan baik secara langsung maupun melalui kontraktor yang diamanahkan oleh pemerintah.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pengawasan dan Pengendalian</strong>: Mengawasi dan mengendalikan pelaksanaan proyek pembangunan agar sesuai dengan standar teknis, waktu, dan anggaran yang telah ditetapkan.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pemeliharaan Infrastruktur</strong>: Bertanggung jawab atas pemeliharaan dan perawatan infrastruktur yang telah dibangun agar tetap berfungsi dengan baik dan aman digunakan oleh masyarakat.</p>\r\n	</li>\r\n	<li>\r\n	<p><strong>Pengelolaan Perumahan</strong>: Mengelola program perumahan bagi masyarakat, termasuk dalam hal pembangunan rumah subsidi, perumahan bagi masyarakat berpenghasilan rendah (MBR), dan peningkatan akses terhadap perumahan layak huni.</p>\r\n	</li>\r\n</ol>\r\n', 0, '19042024091810.jpg', 'profil');
 
 -- --------------------------------------------------------
@@ -72,29 +87,25 @@ INSERT INTO `berita` (`id_berita`, `judul`, `tanggal`, `jam`, `isi`, `dilihat`, 
 CREATE TABLE `daftar` (
   `id_daftar` int(11) NOT NULL,
   `no_daftar` varchar(100) DEFAULT NULL,
-  `program` varchar(100) NOT NULL,
-  `jenis` varchar(100) DEFAULT NULL,
-  `nik` varchar(30) DEFAULT NULL,
-  `nisn` varchar(30) NOT NULL,
+  `program` varchar(100) DEFAULT NULL,
+  `nik` varchar(100) DEFAULT NULL,
+  `nisn` varchar(100) DEFAULT NULL,
   `nama` varchar(128) NOT NULL,
-  `warga_siswa` varchar(20) DEFAULT NULL,
-  `foto` varchar(128) NOT NULL,
+  `warga_siswa` varchar(100) DEFAULT NULL,
+  `foto` varchar(128) DEFAULT NULL,
   `jenis_kelamin` varchar(100) DEFAULT NULL,
   `tempat_lahir` varchar(128) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
-  `asal_sekolah` varchar(128) DEFAULT NULL,
   `jurusan` varchar(100) DEFAULT NULL,
-  `agama` varchar(50) DEFAULT NULL,
   `alamat` text,
-  `rt` varchar(5) DEFAULT NULL,
-  `rw` varchar(5) DEFAULT NULL,
+  `rt` varchar(100) DEFAULT NULL,
+  `rw` varchar(100) DEFAULT NULL,
   `desa` varchar(128) DEFAULT NULL,
   `kecamatan` varchar(128) DEFAULT NULL,
   `kota` varchar(128) DEFAULT NULL,
   `provinsi` varchar(128) DEFAULT NULL,
-  `kode_pos` varchar(6) DEFAULT NULL,
-  `transportasi` varchar(128) DEFAULT NULL,
-  `no_hp` varchar(16) DEFAULT NULL,
+  `kode_pos` varchar(100) DEFAULT NULL,
+  `no_hp` varchar(100) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
   `waktu` varchar(128) DEFAULT NULL,
   `nama_ayah` varchar(128) DEFAULT NULL,
@@ -107,33 +118,20 @@ CREATE TABLE `daftar` (
   `pekerjaan_ibu` varchar(128) DEFAULT NULL,
   `penghasilan_ibu` varchar(128) DEFAULT NULL,
   `no_hp_ibu` varchar(16) DEFAULT NULL,
-  `no_ijazah` varchar(128) DEFAULT NULL,
-  `no_shun` varchar(128) DEFAULT NULL,
-  `no_ujian` varchar(128) DEFAULT NULL,
-  `no_kip` varchar(30) DEFAULT NULL,
-  `kip` varchar(256) DEFAULT NULL,
-  `kk` text,
-  `kepala_keluarga` varchar(100) DEFAULT NULL,
-  `ijazah` varchar(256) DEFAULT NULL,
-  `akta` varchar(256) DEFAULT NULL,
-  `status_upload` varchar(2) DEFAULT '0',
   `aktif` int(1) DEFAULT '0',
   `status` int(1) DEFAULT '0',
   `tgl_daftar` date DEFAULT NULL,
   `tgl_konfirmasi` date DEFAULT NULL,
   `konfirmasi` int(1) DEFAULT '0',
-  `password` text,
-  `show_pass` varchar(100) DEFAULT NULL,
-  `id_sesi` varchar(200) DEFAULT NULL,
-  `token` varchar(200) DEFAULT NULL
+  `id_sesi` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `daftar`
 --
 
-INSERT INTO `daftar` (`id_daftar`, `no_daftar`, `program`, `jenis`, `nik`, `nisn`, `nama`, `warga_siswa`, `foto`, `jenis_kelamin`, `tempat_lahir`, `tgl_lahir`, `asal_sekolah`, `jurusan`, `agama`, `alamat`, `rt`, `rw`, `desa`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `transportasi`, `no_hp`, `email`, `waktu`, `nama_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `nama_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `no_ijazah`, `no_shun`, `no_ujian`, `no_kip`, `kip`, `kk`, `kepala_keluarga`, `ijazah`, `akta`, `status_upload`, `aktif`, `status`, `tgl_daftar`, `tgl_konfirmasi`, `konfirmasi`, `password`, `show_pass`, `id_sesi`, `token`) VALUES
-(1, 'MONDOK/20240520/001/20:08:52', 'Salafi', '', '1820706109100034', '089526007843', 'MARDI mardiyanto', 'WNI', '664b530b6c278.png', 'laki-laki', 'Gunung Sugih ', '2024-05-20', '', 'HANYA MONDOK', '', 'jalan johar perumahan perdana village no. a40\r\npodomoro', '36', '6', 'FAJAR BARU', 'PAGELARAN UTARA', 'KABUPATEN PRINGSEWU', 'LAMPUNG', '35371', '', '082373971991', 'mardybest@gmail.com', '20:09:00', 'haminah', 'smk', 'tani', '1000000', '082373971991', 'suryadi', 'smk', 'tani', '100000', '082373971991', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', 0, 1, '2024-05-20', NULL, 0, NULL, NULL, '434776579023', NULL);
+INSERT INTO `daftar` (`id_daftar`, `no_daftar`, `program`, `nik`, `nisn`, `nama`, `warga_siswa`, `foto`, `jenis_kelamin`, `tempat_lahir`, `tgl_lahir`, `jurusan`, `alamat`, `rt`, `rw`, `desa`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `no_hp`, `email`, `waktu`, `nama_ayah`, `pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `no_hp_ayah`, `nama_ibu`, `pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `no_hp_ibu`, `aktif`, `status`, `tgl_daftar`, `tgl_konfirmasi`, `konfirmasi`, `id_sesi`) VALUES
+(1, 'MONDOK/20240603/001/20:54:02', 'Salafi', '1810011604900002', '089526007843', 'MARDI mardiyanto', 'WNI', '665dcb2f64422.jpg', 'laki-laki', 'Gunung Sugih ', '2024-06-05', 'SMK MA\'ARIF KEPUTRAN', 'jalan johar perumahan perdana village no. a40\r\npodomoro', '36', '36', 'FAJAR BARU', 'PRINGSEWU', 'KABUPATEN PRINGSEWU', '9', '35371', '082373971991', 'mardybest@gmail.com', '20:54:14', 'haminah', 'smk', 'tani', '1000000', '082373971991', 'suryadi', 'smk', 'tani', '100000', '082373971991', 0, 1, '2024-06-03', NULL, 0, '911589384289');
 
 -- --------------------------------------------------------
 
@@ -153,7 +151,9 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id_galeri`, `judul`, `keterangan`, `gambar`) VALUES
-(3, 'SMK NEGERI 2 PRINGSEWU', 'cxbxb', '30042024113403.jpg');
+(4, 'Wisuda Jauharul Maknun', 'Wisuda', '25052024092026.jpg'),
+(5, 'Kelas Al - Imrithy', 'Foto Bersama', '25052024092203.jpg'),
+(6, 'Kelas Alfiyah Tsani', 'Foto Bersama', '25052024092236.jpg');
 
 -- --------------------------------------------------------
 
@@ -167,6 +167,17 @@ CREATE TABLE `kritik` (
   `email` varchar(30) NOT NULL,
   `pesan` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kritik`
+--
+
+INSERT INTO `kritik` (`id_kritik`, `nama`, `email`, `pesan`) VALUES
+(1, '', '', ''),
+(2, '', '', ''),
+(3, '', '', ''),
+(4, '', '', ''),
+(5, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -186,7 +197,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `nama`, `gambar`, `keterangan`) VALUES
-(1, 'AKU', '30042024112327.jpg', 'AKU');
+(2, 'Ust. Muhammad Asrori', '25052024085835.jpg', 'Kitab Talim Mutaalim'),
+(3, 'Ust. Agus Zainudin Ahsan', '25052024093608.jpg', 'Nahwu Al Imrithy'),
+(5, 'Ust. KH. Zainal Afandi', '25052024093936.jpg', 'Kitab Nahwu Alfiyah Tsani');
 
 -- --------------------------------------------------------
 
@@ -211,7 +224,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id_profil`, `nama_app`, `tahun`, `nama`, `alias`, `alamat`, `isi`, `gambar`, `akabest`) VALUES
-(1, 'PONPES AL-HIDAYAH KEPUTREN', '2022/2023', 'PONDOK PESANTREN AL-HIDAYAH KEPUTREN PRINGSEWU', 'PONPES', 'JL Raya Veteran No. 300 Pekon Keputran Kec.Sukoharjo Kabupten Pringsewu Lampung', '<p>Puji syukur kami panjatkan ke hadirat Allah SWT, karena atas segala limpahan rahmat dan hidayah-Nya, kami dapat menyambut kehadiran sebuah inovasi baru di Pondok Pesantren Al-Hidayah Keputran Pringsewu, yaitu berdirinya website resmi pondok pesantren kami.</p>\r\n\r\n<p>Sebagai pengurus, kami sangat bangga dan berterima kasih atas dukungan serta partisipasi semua pihak yang telah turut berkontribusi dalam proses pembangunan dan peluncuran website ini. Website ini bukan hanya sekadar wadah informasi, tetapi juga merupakan langkah maju kami dalam memanfaatkan teknologi informasi untuk meningkatkan kualitas layanan pendidikan dan dakwah di lingkungan pondok pesantren.</p>\r\n\r\n<p>Melalui website ini, kami berharap dapat memberikan akses yang lebih luas bagi masyarakat, termasuk calon santri dan orang tua, untuk mendapatkan informasi tentang program-program pendidikan, kegiatan-kegiatan keagamaan, serta berbagai prestasi dan pencapaian yang telah diraih oleh pondok pesantren kami.</p>\r\n\r\n<p>Kami juga berkomitmen untuk terus mengembangkan dan memperbarui konten-konten yang ada dalam website ini, sehingga dapat selalu memberikan informasi yang akurat, relevan, dan bermanfaat bagi semua pihak yang mengunjungi website kami.</p>\r\n\r\n<p>Terima kasih kepada seluruh tim yang telah bekerja keras dalam pembangunan website ini, serta kepada semua pihak yang telah memberikan dukungan dan doa restu. Semoga website Pondok Pesantren Al-Hidayah Keputran Pringsewu ini dapat menjadi sarana yang bermanfaat dan memberikan manfaat yang besar bagi kita semua.</p>\r\n', '28042024084839.jpg', 'mardybest@gmail.com'),
+(1, 'PON-PES AL-HIDAYAH KEPUTRAN', '2023/2024', 'PONDOK PESANTREN AL-HIDAYAH KEPUTRAN PRINGSEWU', 'PON-PES', 'JL Raya Veteran No. 300 Pekon Keputran Kec.Sukoharjo Kabupten Pringsewu Lampung', '<p>Puji syukur kami panjatkan ke hadirat Allah SWT, karena atas segala limpahan rahmat dan hidayah-Nya, kami dapat menyambut kehadiran sebuah inovasi baru di Pondok Pesantren Al-Hidayah Keputran Pringsewu, yaitu berdirinya website resmi pondok pesantren kami.</p>\r\n\r\n<p>Sebagai pengurus, kami sangat bangga dan berterima kasih atas dukungan serta partisipasi semua pihak yang telah turut berkontribusi dalam proses pembangunan dan peluncuran website ini. Website ini bukan hanya sekadar wadah informasi, tetapi juga merupakan langkah maju kami dalam memanfaatkan teknologi informasi untuk meningkatkan kualitas layanan pendidikan dan dakwah di lingkungan pondok pesantren.</p>\r\n\r\n<p>Melalui website ini, kami berharap dapat memberikan akses yang lebih luas bagi masyarakat, termasuk calon santri dan orang tua, untuk mendapatkan informasi tentang program-program pendidikan, kegiatan-kegiatan keagamaan, serta berbagai prestasi dan pencapaian yang telah diraih oleh pondok pesantren kami.</p>\r\n\r\n<p>Kami juga berkomitmen untuk terus mengembangkan dan memperbarui konten-konten yang ada dalam website ini, sehingga dapat selalu memberikan informasi yang akurat, relevan, dan bermanfaat bagi semua pihak yang mengunjungi website kami.</p>\r\n\r\n<p>Terima kasih kepada seluruh tim yang telah bekerja keras dalam pembangunan website ini, serta kepada semua pihak yang telah memberikan dukungan dan doa restu. Semoga website Pondok Pesantren Al-Hidayah Keputran Pringsewu ini dapat menjadi sarana yang bermanfaat dan memberikan manfaat yang besar bagi kita semua.</p>\r\n', '28042024084839.jpg', 'mardybest@gmail.com'),
 (2, 're', '', 'MARDIYANTO', '19081989578978975', '', '', '', '');
 
 -- --------------------------------------------------------
@@ -295,12 +308,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `daftar`
 --
@@ -310,17 +323,17 @@ ALTER TABLE `daftar`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_galeri` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `kritik`
 --
 ALTER TABLE `kritik`
-  MODIFY `id_kritik` int(40) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kritik` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pegawai` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `profil`
 --
