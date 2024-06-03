@@ -323,7 +323,7 @@ echo"<!-- Page Header Start -->
 ?>
 <?php 
 if($_GET['aksi']=='biodata'){ 
-    $tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE id_sesi=$_GET[id] ");
+    $tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE id_daftar=$_GET[id] ");
     $t=mysqli_fetch_array($tebaru); ?>
     <div class="container-fluid bg-primary py-5 mb-5 page-header">
             <div class="container py-5">
@@ -352,7 +352,7 @@ if($_GET['aksi']=='biodata'){
                     <h6 class="section-title bg-white text-center text-primary px-3">Biodata <?php echo"$t[nama]"; ?> dengan nomor daftar <?php echo"$t[no_daftar]"; ?> </h6>
                     <h1 class="mb-5">Biodata <?php echo"$t[nama]"; ?> </h1>
                 </div>
-                <form method='post' action='int.php?m=inputbiodata&id_daftar=<?php echo"$t[id_daftar]"; ?>&id=<?php echo"$t[id_sesi]"; ?>'  enctype="multipart/form-data">
+                <form method='post' action='int.php?m=inputbiodata&id_daftar=<?php echo"$t[id_daftar]"; ?>'  enctype="multipart/form-data">
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp kotak-border" data-wow-delay="0.1s">
                     <h6 >A.Data Diri dan Pilihan Jurusan : </h6>
@@ -580,7 +580,7 @@ if($_GET['aksi']=='biodata'){
         <!-- Courses End -->
     <?php } ?>
 <?php if($_GET['aksi']=='suksesdaftar'){ 
-$tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE id_sesi=$_GET[id] ");
+$tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE id_daftar=$_GET[id] ");
 $t=mysqli_fetch_array($tebaru); ?>
     <!-- <div class="container-fluid bg-primary py-5 mb-5 page-header">
         <div class="container py-5">
@@ -690,7 +690,7 @@ $t=mysqli_fetch_array($tebaru); ?>
                                 <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Pekerjaan Ibu:<?php echo"$t[pekerjaan_ibu]";?></p>
                             </div>
                             <div class="text-center p-4">
-                                <a class="btn btn-primary px-4 py-2" href="utama.php?aksi=biodataupdate&id=<?php echo"$t[id_sesi]";?>">RUBAH DATA</a>
+                                <a class="btn btn-primary px-4 py-2" href="utama.php?aksi=biodataupdate&id=<?php echo"$t[id_daftar]";?>">RUBAH DATA</a>
                             </div>
                         </div>
                     </div>
@@ -701,7 +701,7 @@ $t=mysqli_fetch_array($tebaru); ?>
 <?php } ?>
 
 <?php if($_GET['aksi']=='biodataupdate'){ 
-$tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE id_sesi=$_GET[id] ");
+$tebaru=mysqli_query($koneksi," SELECT * FROM daftar WHERE id_daftar=$_GET[id] ");
 $t=mysqli_fetch_array($tebaru); ?>
 <div class="container-fluid bg-primary py-5 mb-5 page-header">
         <div class="container py-5">

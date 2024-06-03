@@ -319,7 +319,7 @@ QRcode::png($data, $filepath, $level, $size);
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td><div align="center" class="style19">Mardiyanto </div></td>
+    <td><div align="center" class="style19">admin </div></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td colspan="2"><div align="center" class="style19">( <?php echo"$hasil[nama]"; ?>) </div></td>

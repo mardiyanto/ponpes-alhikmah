@@ -31,122 +31,230 @@ elseif ($_GET['m'] == 'daftar') {
         $query = "INSERT INTO daftar (no_daftar, alamat, program, no_hp, nama, email, id_sesi, tgl_daftar, waktu) 
         VALUES ('$no_daftar', '$alamat', '$program', '$no_hp', '$nama', '$email', '$sesi', '$tgl_daftar','$waktu' )";
         mysqli_query($koneksi, $query);
-        echo "<script>window.alert('Silahkan Lengkapi data dan cek email..... ');
-        window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
+        $id_daftar = mysqli_insert_id($koneksi);
+        echo "<script>window.alert('Silahkan Lengkapi data..... ');
+        window.location=('utama.php?aksi=biodata&id=$id_daftar')</script>";
 }
 
-elseif ($_GET['m'] == 'inputbiodata') {
-    // Pastikan form memiliki enctype="multipart/form-data"
-    // Tambahkan input file untuk unggah foto di form HTML Anda
-                // Ambil nilai lain dari form
-                $program = $_POST['program'];
-                $sesi = $_GET['id'];
-                $jurusan = $_POST['jurusan'];
-                // ... (lanjutkan dengan mengambil nilai lainnya)    
-    // Validasi jika file foto telah diunggah
-    if ($_FILES["foto"]["error"] == UPLOAD_ERR_OK) {
-        $targetDir = "uploads/foto/"; // Direktori tempat menyimpan foto, pastikan direktori ini ada dan dapat diakses
-        
-        // Ambil informasi foto
-        $fotoName = $_FILES["foto"]["name"];
-        $fotoTmpName = $_FILES["foto"]["tmp_name"];
-        $fotoSize = $_FILES["foto"]["size"];
-        $fotoType = $_FILES["foto"]["type"];
-        
-        // Filter nama file jika diperlukan
-        $fotoExtension = pathinfo($fotoName, PATHINFO_EXTENSION);
-        $randomName = uniqid() . "." . $fotoExtension; // Membuat nama acak
-        
-        // Tentukan path dan nama file di server
-        $targetFile = $targetDir . $randomName;
-        
-        // Izinkan format tertentu (misal: hanya JPG, JPEG, PNG, GIF)
-        $allowedFormats = ["jpg", "jpeg", "png", "gif"];
-  
-        
-        if (!in_array($fotoExtension, $allowedFormats)) {
-            echo "<script>window.alert('Maaf, hanya format JPG, JPEG, PNG & GIF yang diizinkan. '); window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
-        } else if ($fotoSize > 5000000) { // Validasi ukuran file (misal: maksimal 2MB)
-            echo "<script>window.alert('Maaf, file terlalu besar..... '); window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
-        } else {
-            // Coba unggah file ke direktori yang ditentukan
-            if (move_uploaded_file($fotoTmpName, $targetFile)) {
-                // Jika berhasil diunggah, lanjutkan dengan query update ke database
+elseif ($_GET['m'] == 'inputbiodata') {   
+    // Mengambil id_daftar dari parameter GET
+$id_daftar = mysqli_real_escape_string($koneksi, $_GET['id_daftar']);
+// Mengambil data dari POST dan melakukan sanitasi input
+$program = mysqli_real_escape_string($koneksi, $_POST['program']);
+$nik = mysqli_real_escape_string($koneksi, $_POST['nik']);
+$nisn = mysqli_real_escape_string($koneksi, $_POST['nisn']);
+$nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
+$warga_siswa = mysqli_real_escape_string($koneksi, $_POST['warga_siswa']);
+$jenis_kelamin = mysqli_real_escape_string($koneksi, $_POST['jenis_kelamin']);
+$tempat_lahir = mysqli_real_escape_string($koneksi, $_POST['tempat_lahir']);
+$tgl_lahir = mysqli_real_escape_string($koneksi, $_POST['tgl_lahir']);
+$jurusan = mysqli_real_escape_string($koneksi, $_POST['jurusan']);
+$alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
+$rt = mysqli_real_escape_string($koneksi, $_POST['rt']);
+$rw = mysqli_real_escape_string($koneksi, $_POST['rw']);
+$desa = mysqli_real_escape_string($koneksi, $_POST['desa']);
+$kecamatan = mysqli_real_escape_string($koneksi, $_POST['kecamatan']);
+$kota = mysqli_real_escape_string($koneksi, $_POST['kota']);
+$provinsi = mysqli_real_escape_string($koneksi, $_POST['provinsi']);
+$kode_pos = mysqli_real_escape_string($koneksi, $_POST['kode_pos']);
+$no_hp = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
+$nama_ayah = mysqli_real_escape_string($koneksi, $_POST['nama_ayah']);
+$pendidikan_ayah = mysqli_real_escape_string($koneksi, $_POST['pendidikan_ayah']);
+$pekerjaan_ayah = mysqli_real_escape_string($koneksi, $_POST['pekerjaan_ayah']);
+$penghasilan_ayah = mysqli_real_escape_string($koneksi, $_POST['penghasilan_ayah']);
+$no_hp_ayah = mysqli_real_escape_string($koneksi, $_POST['no_hp_ayah']);
+$nama_ibu = mysqli_real_escape_string($koneksi, $_POST['nama_ibu']);
+$pendidikan_ibu = mysqli_real_escape_string($koneksi, $_POST['pendidikan_ibu']);
+$pekerjaan_ibu = mysqli_real_escape_string($koneksi, $_POST['pekerjaan_ibu']);
+$penghasilan_ibu = mysqli_real_escape_string($koneksi, $_POST['penghasilan_ibu']);
+$no_hp_ibu = mysqli_real_escape_string($koneksi, $_POST['no_hp_ibu']);
 
-                // Update data di database, termasuk nama file foto
-                $query = "UPDATE daftar SET foto='$randomName', program='$program', jurusan='$jurusan', jenis='$_POST[jenis]', jenis_kelamin='$_POST[jenis_kelamin]', 
-                agama='$_POST[agama]', warga_siswa='$_POST[warga_siswa]', nik='$_POST[nik]', nisn='$_POST[nisn]', no_hp='$_POST[no_hp]', tempat_lahir='$_POST[tempat_lahir]', 
-                tgl_lahir='$_POST[tgl_lahir]', asal_sekolah='$_POST[asal_sekolah]', desa='$_POST[desa]', rt='$_POST[rt]', rw='$_POST[rw]', kecamatan='$_POST[kecamatan]', 
-                kota='$_POST[kota]', provinsi='$_POST[provinsi]', kode_pos='$_POST[kode_pos]', alamat='$_POST[alamat]', nama_ayah='$_POST[nama_ayah]', nama_ibu='$_POST[nama_ibu]', 
-                pendidikan_ayah='$_POST[pendidikan_ayah]', pendidikan_ibu='$_POST[pendidikan_ibu]', pekerjaan_ayah='$_POST[pekerjaan_ayah]', pekerjaan_ibu='$_POST[pekerjaan_ibu]', 
-                penghasilan_ibu='$_POST[penghasilan_ibu]', no_hp_ayah='$_POST[no_hp_ayah]', no_hp_ibu='$_POST[no_hp_ibu]', transportasi='$_POST[transportasi]', 
-                penghasilan_ayah='$_POST[penghasilan_ayah]' WHERE id_daftar='$_GET[id_daftar]'";
-                
-                // Eksekusi query
-                mysqli_query($koneksi, $query);
-                
-                echo "<script>window.alert('update biodata berhasil'); window.location=('utama.php?aksi=suksesdaftar&id=$sesi')</script>";
-            } else {
-                echo "<script>window.alert('Maaf, terjadi kesalahan saat mengunggah file. '); window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
-            }
-        }
+// Mengunggah foto jika ada
+if(isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
+    $foto_tmp = $_FILES['foto']['tmp_name'];
+    $foto_name = $_FILES['foto']['name'];
+    $foto_ext = strtolower(pathinfo($foto_name, PATHINFO_EXTENSION));
+
+    // Hanya izinkan tipe file tertentu
+    $allowed_extensions = ['jpg', 'jpeg', 'png'];
+    if (in_array($foto_ext, $allowed_extensions)) {
+        $randomName = uniqid() . '.' . $foto_ext;
+        $foto_path = 'uploads/foto/' . $randomName;
+        move_uploaded_file($foto_tmp, $foto_path);
     } else {
-        echo "<script>window.alert('Anda belum memilih file foto atau terjadi kesalahan saat mengunggah.'); window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
+        echo "<script>
+                window.alert('Hanya file dengan format JPG, JPEG, dan PNG yang diperbolehkan.');
+                window.history.back();
+              </script>";
+        exit;
     }
+} else {
+    $randomName = ''; // Atau tambahkan logika jika foto wajib
+}
+
+// Query untuk memperbarui data di tabel daftar
+$query = "UPDATE daftar SET 
+    program='$program', 
+    nik='$nik', 
+    nisn='$nisn', 
+    warga_siswa='$warga_siswa', 
+    jenis_kelamin='$jenis_kelamin', 
+    tempat_lahir='$tempat_lahir', 
+    tgl_lahir='$tgl_lahir', 
+    jurusan='$jurusan', 
+    alamat='$alamat', 
+    rt='$rt', 
+    rw='$rw', 
+    desa='$desa', 
+    kecamatan='$kecamatan', 
+    kota='$kota', 
+    provinsi='$provinsi', 
+    kode_pos='$kode_pos', 
+    no_hp='$no_hp', 
+    nama_ayah='$nama_ayah', 
+    pendidikan_ayah='$pendidikan_ayah', 
+    pekerjaan_ayah='$pekerjaan_ayah', 
+    penghasilan_ayah='$penghasilan_ayah', 
+    no_hp_ayah='$no_hp_ayah', 
+    nama_ibu='$nama_ibu', 
+    pendidikan_ibu='$pendidikan_ibu', 
+    pekerjaan_ibu='$pekerjaan_ibu', 
+    penghasilan_ibu='$penghasilan_ibu', 
+    no_hp_ibu='$no_hp_ibu'";
+
+// Jika ada foto, tambahkan ke query
+if ($randomName != '') {
+    $query .= ", foto='$randomName'";
+}
+
+$query .= " WHERE id_daftar='$id_daftar'";
+
+// Eksekusi query
+if (mysqli_query($koneksi, $query)) {
+    echo "<script>
+            window.alert('Data berhasil diperbarui');
+            window.location.href = 'utama.php?aksi=suksesdaftar&id=$id_daftar';
+          </script>";
+} else {
+    echo "Error updating record: " . mysqli_error($koneksi);
+}
 }
 elseif ($_GET['m'] == 'proseseditbiodata') {
-    $program = $_POST['program'];
-    $sesi = $_GET['id'];
-    $id_jurusan = $_POST['id_jurusan'];
+   
+// Mengambil id_daftar dari parameter GET
+$id_daftar = mysqli_real_escape_string($koneksi, $_GET['id_daftar']);
 
-    // Cek apakah ada file gambar yang diunggah
-    if (!empty($_FILES['foto']['name'])) {
-// Menghapus gambar lama sebelum mengunggah yang baru
-        $query_select = "SELECT foto FROM daftar WHERE id_daftar='$_GET[id_daftar]'";
-        $result_select = mysqli_query($koneksi, $query_select);
+// Mengambil data dari POST dan melakukan sanitasi input
+$program = mysqli_real_escape_string($koneksi, $_POST['program']);
+$nik = mysqli_real_escape_string($koneksi, $_POST['nik']);
+$nisn = mysqli_real_escape_string($koneksi, $_POST['nisn']);
+$nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
+$warga_siswa = mysqli_real_escape_string($koneksi, $_POST['warga_siswa']);
+$jenis_kelamin = mysqli_real_escape_string($koneksi, $_POST['jenis_kelamin']);
+$tempat_lahir = mysqli_real_escape_string($koneksi, $_POST['tempat_lahir']);
+$tgl_lahir = mysqli_real_escape_string($koneksi, $_POST['tgl_lahir']);
+$jurusan = mysqli_real_escape_string($koneksi, $_POST['jurusan']);
+$alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
+$rt = mysqli_real_escape_string($koneksi, $_POST['rt']);
+$rw = mysqli_real_escape_string($koneksi, $_POST['rw']);
+$desa = mysqli_real_escape_string($koneksi, $_POST['desa']);
+$kecamatan = mysqli_real_escape_string($koneksi, $_POST['kecamatan']);
+$kota = mysqli_real_escape_string($koneksi, $_POST['kota']);
+$provinsi = mysqli_real_escape_string($koneksi, $_POST['provinsi']);
+$kode_pos = mysqli_real_escape_string($koneksi, $_POST['kode_pos']);
+$no_hp = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
+$email = mysqli_real_escape_string($koneksi, $_POST['email']);
+$nama_ayah = mysqli_real_escape_string($koneksi, $_POST['nama_ayah']);
+$pendidikan_ayah = mysqli_real_escape_string($koneksi, $_POST['pendidikan_ayah']);
+$pekerjaan_ayah = mysqli_real_escape_string($koneksi, $_POST['pekerjaan_ayah']);
+$penghasilan_ayah = mysqli_real_escape_string($koneksi, $_POST['penghasilan_ayah']);
+$no_hp_ayah = mysqli_real_escape_string($koneksi, $_POST['no_hp_ayah']);
+$nama_ibu = mysqli_real_escape_string($koneksi, $_POST['nama_ibu']);
+$pendidikan_ibu = mysqli_real_escape_string($koneksi, $_POST['pendidikan_ibu']);
+$pekerjaan_ibu = mysqli_real_escape_string($koneksi, $_POST['pekerjaan_ibu']);
+$penghasilan_ibu = mysqli_real_escape_string($koneksi, $_POST['penghasilan_ibu']);
+$no_hp_ibu = mysqli_real_escape_string($koneksi, $_POST['no_hp_ibu']);
 
-        if ($result_select) {
-            $row = mysqli_fetch_assoc($result_select);
-            $old_photo = $row['foto'];
-            unlink("uploads/foto/" . $old_photo); // Hapus gambar lama
+// Mengunggah foto jika ada
+$randomName = '';
+if(isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
+    $foto_tmp = $_FILES['foto']['tmp_name'];
+    $foto_name = $_FILES['foto']['name'];
+    $foto_ext = strtolower(pathinfo($foto_name, PATHINFO_EXTENSION));
+
+    // Hanya izinkan tipe file tertentu
+    $allowed_extensions = ['jpg', 'jpeg', 'png'];
+    if (in_array($foto_ext, $allowed_extensions)) {
+        $randomName = uniqid() . '.' . $foto_ext;
+        $foto_path = 'uploads/foto/' . $randomName;
+
+        // Mengambil nama file foto lama dari database
+        $result = mysqli_query($koneksi, "SELECT foto FROM daftar WHERE id_daftar='$id_daftar'");
+        $data = mysqli_fetch_assoc($result);
+        $old_foto = $data['foto'];
+
+        // Menghapus file foto lama jika ada
+        if ($old_foto && file_exists('uploads/foto/' . $old_foto)) {
+            unlink('uploads/foto/' . $old_foto);
         }
-        // Unggah gambar baru
-        $rand = rand();
-        $allowed = ['gif', 'png', 'jpg', 'jpeg'];
-        $filename = $_FILES['foto']['name'];
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-        if (!in_array($ext, $allowed)) {
-            echo "<script>window.alert('Maaf, hanya format JPG, JPEG, PNG & GIF yang diizinkan. '); window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
-            exit;
-        }
-
-        $targetDir = 'uploads/foto/';
-        $targetFile = $targetDir . $rand . '_' . $filename;
-
-        if (!move_uploaded_file($_FILES['foto']['tmp_name'], $targetFile)) {
-            echo "<script>window.alert('Maaf, terjadi kesalahan saat mengunggah file.'); window.location=('utama.php?aksi=biodata&id=$sesi')</script>";
-            exit;
-        }
-
-        $x = $rand . '_' . $filename;
-        mysqli_query($koneksi,"UPDATE daftar SET foto='$x',  program='$_POST[program]', id_jurusan='$_POST[id_jurusan]', jenis='$_POST[jenis]', jenis_kelamin='$_POST[jenis_kelamin]', 
-        agama='$_POST[agama]', warga_siswa='$_POST[warga_siswa]', nik='$_POST[nik]', nisn='$_POST[nisn]', no_hp='$_POST[no_hp]', tempat_lahir='$_POST[tempat_lahir]', 
-        tgl_lahir='$_POST[tgl_lahir]', asal_sekolah='$_POST[asal_sekolah]', desa='$_POST[desa]', rt='$_POST[rt]', rw='$_POST[rw]', kecamatan='$_POST[kecamatan]',kota='$_POST[kota]', 
-        provinsi='$_POST[provinsi]', kode_pos='$_POST[kode_pos]', alamat='$_POST[alamat]', nama_ayah='$_POST[nama_ayah]', nama_ibu='$_POST[nama_ibu]', pendidikan_ayah='$_POST[pendidikan_ayah]',pendidikan_ibu='$_POST[pendidikan_ibu]',
-        pekerjaan_ayah='$_POST[pekerjaan_ayah]', pekerjaan_ibu='$_POST[pekerjaan_ibu]', penghasilan_ibu='$_POST[penghasilan_ibu]', no_hp_ayah='$_POST[no_hp_ayah]', no_hp_ibu='$_POST[no_hp_ibu]', transportasi='$_POST[transportasi]',penghasilan_ayah='$_POST[penghasilan_ayah]' 
-        WHERE id_daftar='$_GET[id_daftar]'");
-        echo "<script>window.alert('update biodata berhasil'); window.location=('utama.php?aksi=suksesdaftar&id=$sesi')</script>";
+        // Mengunggah foto baru
+        move_uploaded_file($foto_tmp, $foto_path);
     } else {
-        // Jika tidak ada file yang diunggah
-        mysqli_query($koneksi,"UPDATE daftar SET  program='$_POST[program]', id_jurusan='$_POST[id_jurusan]', jenis='$_POST[jenis]', jenis_kelamin='$_POST[jenis_kelamin]', 
-        agama='$_POST[agama]', warga_siswa='$_POST[warga_siswa]', nik='$_POST[nik]', nisn='$_POST[nisn]', no_hp='$_POST[no_hp]', tempat_lahir='$_POST[tempat_lahir]', 
-        tgl_lahir='$_POST[tgl_lahir]', asal_sekolah='$_POST[asal_sekolah]', desa='$_POST[desa]', rt='$_POST[rt]', rw='$_POST[rw]', kecamatan='$_POST[kecamatan]',kota='$_POST[kota]', 
-        provinsi='$_POST[provinsi]', kode_pos='$_POST[kode_pos]', alamat='$_POST[alamat]', nama_ayah='$_POST[nama_ayah]', nama_ibu='$_POST[nama_ibu]', pendidikan_ayah='$_POST[pendidikan_ayah]',pendidikan_ibu='$_POST[pendidikan_ibu]',
-        pekerjaan_ayah='$_POST[pekerjaan_ayah]', pekerjaan_ibu='$_POST[pekerjaan_ibu]', penghasilan_ibu='$_POST[penghasilan_ibu]', no_hp_ayah='$_POST[no_hp_ayah]', no_hp_ibu='$_POST[no_hp_ibu]', transportasi='$_POST[transportasi]',penghasilan_ayah='$_POST[penghasilan_ayah]' 
-        WHERE id_daftar='$_GET[id_daftar]'");
-        echo "<script>window.alert('update biodata berhasil'); window.location=('utama.php?aksi=suksesdaftar&id=$sesi')</script>";
+        echo "<script>
+                window.alert('Hanya file dengan format JPG, JPEG, dan PNG yang diperbolehkan.');
+                window.history.back();
+              </script>";
+        exit;
     }
+}
+
+// Query untuk memperbarui data di tabel daftar
+$query = "UPDATE daftar SET 
+    program='$program', 
+    nik='$nik', 
+    nisn='$nisn', 
+    warga_siswa='$warga_siswa', 
+    jenis_kelamin='$jenis_kelamin', 
+    tempat_lahir='$tempat_lahir', 
+    tgl_lahir='$tgl_lahir', 
+    jurusan='$jurusan', 
+    alamat='$alamat', 
+    rt='$rt', 
+    rw='$rw', 
+    desa='$desa', 
+    kecamatan='$kecamatan', 
+    kota='$kota', 
+    provinsi='$provinsi', 
+    kode_pos='$kode_pos', 
+    no_hp='$no_hp', 
+    nama_ayah='$nama_ayah', 
+    pendidikan_ayah='$pendidikan_ayah', 
+    pekerjaan_ayah='$pekerjaan_ayah', 
+    penghasilan_ayah='$penghasilan_ayah', 
+    no_hp_ayah='$no_hp_ayah', 
+    nama_ibu='$nama_ibu', 
+    pendidikan_ibu='$pendidikan_ibu', 
+    pekerjaan_ibu='$pekerjaan_ibu', 
+    penghasilan_ibu='$penghasilan_ibu', 
+    no_hp_ibu='$no_hp_ibu'";
+
+// Jika ada foto, tambahkan ke query
+if ($randomName != '') {
+    $query .= ", foto='$randomName'";
+}
+
+$query .= " WHERE id_daftar='$id_daftar'";
+
+// Eksekusi query
+if (mysqli_query($koneksi, $query)) {
+    echo "<script>
+            window.alert('Data berhasil diperbarui');
+            window.location.href = 'utama.php?aksi=suksesdaftar&id=$id_daftar';
+          </script>";
+} else {
+    echo "Error updating record: " . mysqli_error($koneksi);
+}
 }
 elseif ($_GET['m'] == 'login') {
     // Ambil nilai dari form login

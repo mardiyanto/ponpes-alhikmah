@@ -7,17 +7,13 @@
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="../uploads/foto/<?php echo"$t[foto]";?>" alt="User profile picture">
                   <h3 class="profile-username text-center"><?php echo"$t[nama]";?></h3>
-                  <p class="text-muted text-center">Calon Mahasiswa Baru IBN Lampung</p>
+                  <p class="text-muted text-center">Calon Siswa Baru</p>
                   <ul class="list-group list-group-unbordered">
+               
                     <li class="list-group-item">
-                      <b>Jenjang</b> <a class="pull-right"><?php echo"$t[jurusan]";?></a>
+                      <b>Program </b> <a class="pull-right"><?php echo"$t[program]";?></a>
                     </li>
-                    <li class="list-group-item">
-                      <b>Program Kuliah</b> <a class="pull-right"><?php echo"$t[program]";?></a>
-                    </li>
-                    <li class="list-group-item">
-                      <b>Jenis Kuliah</b> <a class="pull-right"><?php echo"$t[jenis]";?></a>
-                    </li>
+                 
                   </ul>
                 <?php  if($t['status']=='0'){
                     echo"<a href='index.php?aksi=prosesedit&id_daftar=$t[id_daftar]' onclick=\"return confirm ('Apakah yakin ingin Menerima Mahasiswa $t[nama] ?')\" class='btn btn-danger btn-block'><b>BARU</b></a>";
